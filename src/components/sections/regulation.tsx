@@ -43,7 +43,7 @@ export function Sport(){
             <section className="Cartas place-items-center place-content-center px-6 py-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-5 ">
                 {sports.map((norma)=>(
                     <React.Fragment  key={norma.id}>
-                        <Card className={`relative w-full md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-xl cursor-pointer rounded-lg overflow-hidden transform transition-all duration-300 ${isSport  === norma.id  ?'scale-104 bg-white shadow-blue-100 shadow-lg':' bg-white hover:scale-102 shadow-lg'}`}>
+                        <Card className={`relative w-full md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-xl cursor-pointer rounded-lg overflow-hidden transform transition-all duration-300 ${isSport  === norma.id  ?'scale-104 bg-white shadow-blue-200 shadow-lg':' bg-white hover:scale-102 shadow-xl'}`}>
                             <Button className='w-full flex items-center text-start p-2 px-3 cursor-pointer' onClick={()=>handleClickSport(norma.id)} onMouseEnter={() => handleHovered(norma.id)} onMouseLeave={() => handleHovered(norma.id)}>
                                 <div className="relative size-18 ring-4 rounded-full ring-sky-400 ">
                                     <Image

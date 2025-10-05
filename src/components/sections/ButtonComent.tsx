@@ -22,7 +22,7 @@ export default function Comment() {
 
     return(
         <>
-        <div className="relative flex flex-col text-[24px] items-center justify-center space-y-3 p-3 lg:gap-5 shadow-lg drop-shadow-sm rounded-xl bg-gray-50 w-[95%]">
+        <div className="relative flex flex-col text-[24px] items-center justify-center space-y-3 p-3 lg:gap-5 shadow-lg drop-shadow-sm rounded-xl bg-gray-50 w-[95%] xl:w-[85%]">
             <div className="flex flex-col lg:w-3/5 space-y-3">
                 <h2 className=" text-[1.5rem] md:text-[2rem] xl:text-[2.5rem] font-bold text-center ">¿Listo Para Elevar el nivel de la Experiencia Deportiva?</h2>
                 <p className="text-[18px] text-gray-600 text-center ">Queremos crecer contigo. Cada idea, cada comentario y cada experiencia compartida nos ayuda a perfeccionar Univita para que refleje lo mejor de nuestra comunidad universitaria.</p>
@@ -42,9 +42,9 @@ export default function Comment() {
         </div>
         <Modal state={OpenModal}>
             {OpenModal &&(
-                <ContainModal className="relative grid-flow-row-dense space-y-5 w-sm sm:w-xl max-h-90% min-w-80 min-h-72 overflow-y-auto">
+                <ContainModal className="bg-gray-100 relative grid-flow-row-dense space-y-6 w-sm sm:w-xl max-h-90% min-w-80 min-h-72 overflow-y-auto">
                     
-                    <HeaderModal onClose={handleCloseModal} className="flex-none">Buzon de Comentarios</HeaderModal>                            
+                    <HeaderModal onClose={handleCloseModal} className="flex-none text-[1.5rem] font-bold">Buzon de Comentarios</HeaderModal>                            
 
                     <div className="main-modal flex-grow space-y-3 place-items-center">
 
@@ -75,13 +75,13 @@ export default function Comment() {
 
                         <div className="Coment flex items-start md:items-center">
                             <InputGroup label="Comentario" For="Coment" labelClass="text-[18px] text-start ">
-                                <TextArea id="Coment" className="w-[18rem] sm:w-sm h-[12rem]"/>
+                                <TextArea id="Coment" className="w-[18rem] sm:w-sm h-[8rem]"/>
                             </InputGroup>
                         </div>
 
                     </div>
 
-                    <FooterModal BTmain="Enviar" BTSecond="Cerrar" onClose={handleCloseModal} className="flex-none"/>
+                    <FooterModal BTmain="Enviar" BTSecond="Cerrar" onClose={handleCloseModal} className="flex-none mt-8"/>
                         
                     
                 </ContainModal>

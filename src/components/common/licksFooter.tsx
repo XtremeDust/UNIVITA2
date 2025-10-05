@@ -20,7 +20,7 @@ function licksFooter(){
                             {sub.id===43 &&(
                             <div>
                                 <p>{sub.title}</p>
-                               <div className="grid gap-1 justify-start">
+                               <div className="grid gap-1 justify-start mt-4">
                                     <Redes />
                                 </div>
                             </div>

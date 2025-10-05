@@ -25,7 +25,7 @@ import {featS} from "@/types/feactures";
                               group-[.card:hover]:bg-gray-400 group-[.card:hover]:scale-110 
                               overflow-hidden bg-unimar rounded-full ">
                                 <Image
-                                    className="p-2.5  "
+                                    className="p-1.5  "
                                     src={events.img}
                                     width={70}
                                     height={70}

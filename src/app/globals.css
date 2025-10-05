@@ -3,9 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-unimar: #0d4e98;
+  --color-unimar: #0D4D98;
   --color-trasparent-unimar: #0f335c3a;  
   --color-univita:#000EA1;
+  --color-publicidad:#e8e8e8;
+  --color-uniwhite:#ffffff;
+}
+
+@font-face {
+  font-family: 'Montserrat Variable';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {
@@ -16,6 +26,8 @@
   --color-unimar: var(--color-unimar);
   --color-trasparent-unimar: var(--color-trasparent-unimar);  
   --color-univita: var(--color-univita);
+  --color-publicidad: var(--color-publicidad);
+  --color-uniwhite:var(--color-uniwhite);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,7 +40,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: 'Montserrat Variable', sans-serif;
 }
 
 .animate-spin-gradient{

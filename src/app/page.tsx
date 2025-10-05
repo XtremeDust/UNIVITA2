@@ -28,7 +28,7 @@ export default function Home() {
             <div className="Univita m-0">
               <Univita/>
             </div>
-            <div className="Coments p-3 bg-[#eee8e8] ">
+            <div className="Coments p-3 bg-gray-100">
               <Comentsection/>
             </div>
             

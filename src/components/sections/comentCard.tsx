@@ -9,7 +9,7 @@ interface ComentProps{
 
     export default function ComentarsCard({coment, index}:ComentProps){
         return(
-            <div  className={`drop-shadow-md shadow-lg rounded-xl opacity-100 group-hover:opacity-50 hover:opacity-100 transition-all duration-400 scale-95 ${index % 2 ===0 ?'bg-gray-50 hover:scale-97 ring-univita ring-1':'bg-unimar text-white scale-103 hover:scale-105 ring-2 ring-white'} `}>
+            <div  className={`drop-shadow-lg shadow-lg rounded-xl opacity-100 group-hover:opacity-50 hover:opacity-100 transition-all duration-400 scale-95 ${index % 2 ===0 ?'bg-gray-50 hover:scale-97 ring-univita ring-1':'bg-unimar text-white scale-103 hover:scale-105 ring-2 ring-white'} `}>
                     
                     <div key={coment.id} className={`flex-col p-2 space-y-3 w-full md:w-[40rem] xl:w-full py-6 place-content-around place-items-center `}>
                         <div className="flex flex-row space-x-3 items-center w-full px-2 ">

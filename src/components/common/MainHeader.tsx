@@ -13,6 +13,7 @@ function Header(){
 const [isOpenMenu, setOpenMenu] = useState(false);
 let date: Date=new Date();
 
+
     return(
     
       <header className=" flex flex-col w-full  items-center text-center justify-center gap-1 bg-blue-50">
@@ -60,7 +61,7 @@ let date: Date=new Date();
 
               {/*LOGO unimar*/}
               <div className="grid place-items-center xl:justify-items-normal ">
-                <ActiveLink href="/">
+                <ActiveLink href="https://portalunimar.unimar.edu.ve/home">
                 <img src="https://res.cloudinary.com/dnfvfft3w/image/upload/v1759370231/logounimar-25-aniversario_lmjwkc.png" alt="logo unimar" className="w-2/3 md:w-xl  xl:ml-12"/>              
                 </ActiveLink>
               </div>

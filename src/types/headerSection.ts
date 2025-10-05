@@ -85,7 +85,8 @@ export const pago = [
                     url:"#",img:"#",
                     subsectionH:[
                     {id:271, title:"Vicerrectorado", url:"https://portalunimar.unimar.edu.ve/extension-vicerectorate"},
-                    {id:272, title:"Servicio Comunitario", url:"https://portalunimar.unimar.edu.ve/community-service"}
+                    {id:272, title:"Servicio Comunitario", url:"https://portalunimar.unimar.edu.ve/community-service"},
+                    {id:273, title:"Univita", url:"/"}
                 ]
             },
             {id:28, title:"Normativas", url:"https://portalunimar.unimar.edu.ve/regulations"},

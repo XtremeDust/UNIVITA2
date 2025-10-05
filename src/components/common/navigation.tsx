@@ -7,23 +7,23 @@ import { usePathname } from "next/navigation";
 export function navigate(){
         const ruta = usePathname();
     return(
-        <section className=" max-w-screen-xl space-y-2  mx-auto p-4 md:p-8 text-black">
+        <section className=" max-w-screen-2xl space-y-2  mx-auto p-4 md:p-8 text-black">
                 <h2 className="title text-center">Quizas te interece</h2>
                 <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
                   Encuentra información relevante y recursos útiles para tus actividades académicas y deportivas en la universidad.
                 </p>
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-wrap justify-evenly gap-6">
                 {univita.map((card)=>(
                             <Card key={card.id} className={` 
-                                block text-center p-6 bg-white rounded-lg shadow-lg cursor-pointer
+                                group block text-center  bg-white rounded-lg shadow-lg cursor-pointer
                                  transition-transform transform duration-300 ease-in-out
-                                   w-full md:w-[24rem]
+                                   w-full md:w-[24rem] place-content-center
                                     ${ruta===card.url ? 'hidden':'visible hover:scale-103 hover:ring-0'}`}>
-                                <ActiveLink href={card.url}>
-                                    <div className="flex flex-col items-center justify-center p-4 h-full ">
-                                        <div className="p-2 md:p-4 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                                <ActiveLink href={card.url} className="size-full p-6">
+                                    <div className="flex flex-col items-center justify-center p-4 h-full">
+                                        <div className="p-2 group-hover:p-3 group-hover:md:p-3.2 bg-blue-100 transition-all duration-300 ease-in-out rounded-full flex items-center justify-center mb-4">
                                             <Image
-                                                className=" transition-all duration-300 ease-in-out p-2 md:p-0"
+                                                className=" p-2 md:p-0"
                                                 src={card.img}
                                                 width={80}
                                                 height={80}

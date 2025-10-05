@@ -11,7 +11,7 @@ import {Button} from "@/types/ui_components"
     return(
         <div className={`flex flex-col header-modal items-end justify-center ${className}`} {...props}>
             <Button variant={"btn-back"} className="rounded-full" onClick={onClose}>X</Button>                            
-            <div className="text-center w-full text-[1.5rem]">
+            <div className="text-center w-full ">
                 {children}
             </div>                            
         </div> 

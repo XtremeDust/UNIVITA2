@@ -5,7 +5,7 @@ import Image from "next/image";
   export default function Redes(){
    
      return(
-        <ul className="grid grid-flow-col place-items-center gap-1 p-1">
+        <ul className="grid grid-flow-col place-items-center gap-1">
             {redes.map((icon)=>(
                 <li key={icon.id}>                   
                     <a href={icon.Url}>

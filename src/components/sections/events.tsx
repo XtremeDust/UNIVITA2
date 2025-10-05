@@ -27,10 +27,10 @@ export default function Events(){
 
             </section>
 
-             <section className="eventos p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+             <section className="eventos p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-center">
                 {eventos.slice(0,4).map((card)=>(
                     <ActiveLink key={card.id} href={`events/${card.id}`}>
-                        <Card  className="relative bg-white max-w-sm cursor-pointer rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105">
+                        <Card  className="relative bg-white max-w-sm cursor-pointer rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-104">
                             <div className="relative h-52 w-full">
                                 <div className={`absolute px-2 py-1 rounded-xl top-2 right-2 z-10 
                                     ${card.estado==='Activo'?'bg-green-500':(card.estado==='Finalizado'?'bg-red-500':'bg-orange-500')}`}>
@@ -72,8 +72,8 @@ export default function Events(){
                         </p>
                     </div>
 
-                    <div className="z-10 relative bg-white rounded-lg shadow-2xl mt-3 py-6 lg:py-6.5 w-9/10 sm:w-sm md:w-md lg:w-[26rem] ">
-                            <Input type="email" placeholder="example.0123@unimar.edu.ve" className="absolute z-10 top-0 inset-0 text-sm md:text-md lg:text-lg text-black rounded-lg sm:pl-5 pr-22.5 sm:pr-33 focus:ring-[1px] ring ring-univita focus:ring-gray-700 focus:outline-none"/>
+                    <div className="z-10 relative bg-white rounded-lg shadow-2xl mt-3 py-6 lg:py-6.5 w-9/10 sm:w-sm md:w-md lg:w-[26rem] 2xl:w-[25%] ">
+                            <Input type="email" placeholder="example.0123@unimar.edu.ve" className="absolute z-10 top-0 inset-0 text-sm md:text-md lg:text-lg text-black rounded-lg sm:pl-5 pr-22.5 sm:pr-33 2xl:pr-40 focus:ring-[1px] ring ring-univita focus:ring-gray-700 focus:outline-none"/>
                             <Button className="absolute contain flex gap-2 cursor-pointer font-semibold z-10 right-1 top-[3px]  bg-unimar text-sm md:text-[15px] px-1 sm:px-2.5 py-2 lg:py-2.5 rounded-lg hover:opacity-95 transition-all duration-300 place-items-center"
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}

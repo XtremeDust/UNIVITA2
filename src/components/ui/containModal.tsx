@@ -8,7 +8,7 @@ export interface contentModalProps{
 
     export function ContainModal({children,className,...props}:contentModalProps){               
         return(
-            <div className={` bg-gray-100 rounded-2xl p-5 text-center  ${className}`} onClick={(e) => e.stopPropagation()} {...props}>
+            <div className={` rounded-2xl p-5 text-center  ${className}`} onClick={(e) => e.stopPropagation()} {...props}>
                 {children}
             </div>
         )

@@ -49,7 +49,7 @@ export default async function ID({params}:PropsID){
                                 <section className='  space-y-5  mt-5 p-2 w-full place-items-center'>
                                     <div className='partido/present w-[95%] text-black bg-white shadow-2xl rounded-2xl '> 
                                         {envivo.map((vivo)=>(
-                                            <Card key={vivo.id} className='space-y-5 flex flex-col lg:flex-row justify-around p-6 lg:h-[34rem] items-center'>
+                                            <Card key={vivo.id} className='space-y-5 flex flex-col lg:flex-row justify-around p-6 lg:h-[25rem] items-center'>
                                                 <>
                                                 <div className='flex  flex-col space-y-5 items-center'>
                                                     <div className='p-4 bg-gray-500 rounded-full'>

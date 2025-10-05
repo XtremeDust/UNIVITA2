@@ -7,8 +7,8 @@ import { coments } from "@/types/comentarios";
     //elemnto para mapear de 0 a 6 elementos const commentsSubset = coments.slice(0, 6);
     //elemnto para mapear duplicar const duplicatedComments = [...commentsSubset, ...commentsSubset];
     return(
-        <section className="comenSection gap-6 bg-transparent my-2"> 
-            <section className="flex flex-col w-full m-0 place-items-center text-center place-content-center overflow-hidden p-1">
+        <section className="comenSection gap-6 bg-transparent my-2 flex-col flex "> 
+            <section className="flex flex-col gap-5 w-full m-0 place-items-center text-center place-content-center overflow-hidden p-1">
                 <div className=" md:text-2xl flex flex-col gap-3 text-center place-items-center m-0">
                     <h3  className="text-[1.5rem] md:text-[2rem] xl:text-[2.5rem] font-bold ">Construyendo Un Futuro Deportivo Brillante</h3>
                         <p className="w-[90%] text-center text-[18px] text-gray-600">Juntos, podemos crear un deporte universitario más vibrante y lleno de vida.
