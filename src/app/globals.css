@@ -145,7 +145,7 @@ body {
   z-index: 0;
   background-image: linear-gradient(
     to bottom right,
-    #0d3463,
+    #0D4D98,
     #1d4ed8,
     #064ed4
   ); 
@@ -179,7 +179,7 @@ body {
 }
 
 .input{
-  @apply focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 drop-shadow-2xl rounded-[6px]
+  @apply focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-[6px]
 }
 
 .card-small{

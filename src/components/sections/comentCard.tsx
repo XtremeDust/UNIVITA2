@@ -17,12 +17,12 @@ interface ComentProps{
                                 <Avatar email={coment.email}/>                      
                             </div>
 
-                            <div className="flex flex-col space-x-2">
+                            <div className="flex flex-col items-start">
                                 <h3 className="font-bold">{(coment.name ==='null' ? 'Anonimo' : coment.name)}</h3>
                                 <span className="opacity-70">{coment.date}</span>
                             </div>
                         </div>
-                        <p className={`line-clamp-3 xl:line-clamp-5 w-[90%] text-justify ${index % 2 ===0 ?'text-gray-600':'text-white'}`}>{coment.content.contenido}</p>
+                        <p className={`line-clamp-3 xl:line-clamp-5 w-[95%] text-justify ${index % 2 ===0 ?'text-gray-600':'text-white'}`}>{coment.content.contenido}</p>
                     </div> 
             </div> 
         )

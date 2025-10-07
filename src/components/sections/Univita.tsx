@@ -25,7 +25,7 @@ export default function Univita() {
 
           <div className='relative z-20 texto w-[90%] md:w-[48rem] xl:w-[50%] 2xl:w-[50%] place-content-center text-center xl:text-justify space-y-1'>
             <h3 className='text-[1.5rem] md:text-[2rem] xl:text-[2.5rem] font-bold'>Bienvenido a Univita</h3>
-             <p className='text-[18px] md:ml-3 p-1.5'>                
+             <p className='text-[18px] p-1.5'>                
                 El nuevo capítulo de la Universidad de Margarita se escribe a través de este módulo: un bastión de eficiencia forjado para la excelencia. Es la plataforma que consolida el espíritu de comunidad, la energía del deporte y la riqueza de la cultura bajo una misma arquitectura digital, garantizando que cada registro, evento y logro se convierta en parte de la historia de nuestra casa de estudios.
               </p> 
           </div>
@@ -36,9 +36,9 @@ export default function Univita() {
           {univita.map((card)=>(
             <Card key={card.id} className=' group w-full h-full bg-white text-center rounded-xl scale-90 hover:scale-88 shadow-2xl cursor-pointer transition-transform transform duration-300 ease-in-out'>
                 <ActiveLink href={card.url} className=' size-full space-y-3 p-6 flex flex-col place-content-center place-items-center text-center'>
-                      <div className='p-1.5 group-hover:p-3  bg-blue-100 transition-all duration-300 ease-in-out rounded-full flex items-center justify-center mb-4'>
+                      <div className='p-1.5  bg-blue-100 rounded-full flex items-center justify-center mb-4'>
                         <Image
-                            className="w-[8rem] rounded-full"
+                            className="w-[8rem] rounded-full group-hover:scale-90  transition-all duration-300 ease-in-out"
                             src={card.img}
                             width={500}
                             height={500}

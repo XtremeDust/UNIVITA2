@@ -29,7 +29,7 @@ export const coments = [
         content:{contenido}
     },{
         id: 3,
-        name:'3',
+        name:'Anónimo',
         email:'null',
         date:'15/08/2025',
         content:{contenido}

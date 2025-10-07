@@ -147,14 +147,29 @@ export function ButtonInscription(){
 
              <Modal state={OpenModal}>
                 {OpenModal &&(
-                    <ContainModal className="grid-flow-row-dense md:flex md:flex-col text-black size-[95%] space-y-3 overflow-y-auto bg-gray-200">
+                    <ContainModal className={`grid-flow-row-dense md:flex md:flex-col text-black ${ isSept===1 ? 'size-[95%]  md:w-[75%] md:h-[75%] xl:w-[50%]':(isSept===2 ? 'w-[95%] h-[95%] md:w-[85%] md:h-[90%] xl:w-[65%] xl:h-[95%]':'size-[95%] md:h-[95%]  xl:w-[50%]') }  space-y-3 overflow-y-auto bg-gray-200`}>
                         <HeaderModal className="flex-none" onClose={handleCloseModal}>
                             <div className="text-start">
-                                <h2 className="ml-5 title">Registro e Inscripción</h2>
-                                <p className="ml-5 text-[1.2rem]">completa los pasos para inscribirte.</p>
+                                <h2 className="ml-5 title">Formulario de Inscripción</h2>
+                                <p className="ml-5 text-[1.2rem]">complete los detalles de su equipo para finalizar la inscripción.</p>
                             </div>
                         </HeaderModal>
-                        
+
+                        <div className="fases grid grid-cols-3">
+                            <div className="place-items-center space-y-2">
+                                <h2 className={`rounded-full p-2 size-[48px] place-content-center ${isSept===1 ? 'bg-unimar text-white':'bg-gray-300 '}`}>1</h2>
+                                <p className={`${isSept===1 ? 'text-unimar font-bold':'text-gray-700'}`}>Informacion Básica</p>
+                            </div>
+                            <div className="place-items-center space-y-2">
+                                <h2 className={`rounded-full p-2 size-[48px] place-content-center ${isSept===2 ? 'bg-unimar text-white':'bg-gray-300 '}`}>2</h2>
+                                <p className={`${isSept===2 ? 'text-unimar font-bold':'text-gray-700'}`}>Detelles del Torneo</p>
+                            </div>
+                            <div className="place-items-center space-y-2">
+                                <h2 className={`rounded-full p-2 size-[48px] place-content-center ${isSept===3 ? 'bg-unimar text-white':'bg-gray-300 '}`}>3</h2>
+                                <p className={`${isSept===3 ? 'text-unimar font-bold':'text-gray-700'}`}>Información del Equipo</p>
+                            </div>
+                        </div>
+
                         <div className="relative flex-grow main-modal  place-content-center">
                             <AnimatePresence mode="wait">
                                 <motion.div
@@ -168,8 +183,8 @@ export function ButtonInscription(){
                                     {isSept ===1 &&(
                                         <>
                                             <section className="flex flex-col space-y-5 p-2 shadow rounded-xl bg-gray-100">
-                                                <div className="section-title mt-3 flex flex-row gap-2 ml-5">
-                                                    <div className="relative size-[64px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                <div className="section-title mt-3 flex flex-row gap-2 ml-5 place-items-center">
+                                                    <div className="relative size-[52px] bg-publicidad ring-4 ring-unimar rounded-2xl">
                                                         <Image
                                                             className=" absolute inset-0 object-contain p-2"
                                                             src={'/file.svg'}
@@ -178,11 +193,11 @@ export function ButtonInscription(){
                                                         />
                                                     </div>
                                                     <div className="text-start">
-                                                        <h3 className="text-[1.3rem] font-bold">Paso 1: Elige tu Deporte</h3>
-                                                        <p className="text-[1.1rem]">Selecciona la disiplina en la que competirás</p>
+                                                        <h3 className="text-[1.3rem] font-bold">Información Básica</h3>
                                                     </div>
                                                 </div>
-                                                <div className="flex flex-col">
+                                                <div className="flex flex-col md:grid md:grid-cols-2 gap-3 text-start p-3">
+{/*<div className="flex flex-col">
                                                         <div className="flex flex-wrap p-2 gap-3 place-content-center">
                                                                 {sports.map((card)=>(
                                                                     <Sports
@@ -195,11 +210,83 @@ export function ButtonInscription(){
                                                                     />
                                                                 ))}
                                                         </div>
+                                                </div> */}
+                                                
+                                                        <InputGroup For="" label="Deporte" labelClass="text-gray-700">
+                                                            <div className="relative">
+                                                                <Image
+                                                                    className="absolute left-3 top-3 h-4 w-4 text-slate-400"
+                                                                    src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905312/bloquear_msxkkj.png'}
+                                                                    alt="correo"
+                                                                    width={20}
+                                                                    height={20}
+                                                                />
+                                                                <Input type='text' id="Contra" className="input w-full pl-10 pr-3 py-2 " placeholder="••••••••" required />
+                                                                    <Button type="button" className=" cursor-pointer absolute right-3 top-0 ">
+                                                                        <Image
+                                                                        className="h-10 w-10"
+                                                                        src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905672/ocultar_1_mdw2qo.png'}
+                                                                        alt="contraseña"
+                                                                        width={100}
+                                                                        height={100}
+                                                                    />
+                                                                    </Button>
+                                                            </div>
+                                                        </InputGroup>
+                                                        <InputGroup For="Categoria" label="Categoria" labelClass="text-gray-700">
+                                                            <div className="relative">
+                                                                <Image
+                                                                    className="absolute left-3 top-3 h-4 w-4 text-slate-400"
+                                                                    src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905312/bloquear_msxkkj.png'}
+                                                                    alt="correo"
+                                                                    width={20}
+                                                                    height={20}
+                                                                />
+                                                                <Input type='text' id="Contra" className="input w-full pl-10 pr-3 py-2 "  placeholder="••••••••" required />
+                                                                    <Button type="button" className=" cursor-pointer absolute right-3 top-0 ">
+                                                                        <Image
+                                                                        className="h-10 w-10"
+                                                                        src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905672/ocultar_1_mdw2qo.png'}
+                                                                        alt="contraseña"
+                                                                        width={100}
+                                                                        height={100}
+                                                                    />
+                                                                    </Button>
+                                                            </div>
+                                                        </InputGroup>                                                
+
+                                                    <InputGroup For="" label="Nombre del Torneo"  labelClass="text-gray-700" className="md:col-span-2">
+                                                        <div className="relative">
+                                                            <Image
+                                                                className="absolute left-3 top-3 h-4 w-4 text-slate-400"
+                                                                src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905312/correo-electronico_kqhai5.png'}
+                                                                alt="correo"
+                                                                width={50}
+                                                                height={50}
+                                                            />
+                                                            <Input type="text" id="Categoria" className="input w-full pl-10 pr-3 py-2" placeholder="example.1234@unimar.edu.ve" required/>
+                                                        </div>                                                    
+                                                    </InputGroup>
+
+                                                    <div className=" border-l-4 border-unimar col-span-2 p-4 bg-gray-300 rounded-xl">
+                                                        <span>
+                                                            La fecha de las inscripciones para este torneo son hasta el xxx  
+                                                        </span>
+                                                    </div>
                                                 </div>
+
+                                                
                                             </section>
-                                            <section className="flex flex-col space-y-5 p-2 shadow rounded-xl bg-gray-100 transition-all">                                
-                                                    <div className="section-title mt-3 flex flex-row gap-2 ml-5">
-                                                        <div className="relative size-[64px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                            
+                                        </>
+                                    )}
+                                    {isSept ===2 &&(
+                                        <>
+                                            <section className="flex flex-col py-4 px-3 shadow rounded-xl bg-gray-100">
+
+                                                <div className="section-title  flex flex-col space-y-4">
+                                                    <div className="flex place-items-center mt-3 gap-2 ml-2">
+                                                        <div className="relative size-[48px] bg-publicidad ring-4 ring-unimar rounded-2xl">
                                                             <Image
                                                                 className=" absolute inset-0 object-contain p-2"
                                                                 src={'/file.svg'}
@@ -208,103 +295,15 @@ export function ButtonInscription(){
                                                             />
                                                         </div>
                                                         <div className="text-start">
-                                                            <h3 className="text-[1.3rem] font-bold">Paso 2: Elige tu Categoría</h3>
-                                                            <p className="text-[1.1rem]">Selecciona la categoria en la que participarás</p>
+                                                            <h3 className="text-[1.3rem] font-bold text-unimar">Nombre del Torneo</h3>
                                                         </div>
                                                     </div>
-                                                    <div>
-                                                        <div className="group w-[95%] ml-5 transition-all duration-300 ease-in-out">
-                                                            {categoria &&(
-                                                                <div className={` flex flex-col gap-2 p-2 rounded-xl transition-all duration-300 w-full sm:w-[75%] md:w-auto bg-gray-300/80 shadow-md mb-3`}>
-                                                                {categoria.categoria?.map((cat)=>(
-                                                                        <Button
-                                                                            key={cat.category} 
-                                                                            onClick={()=>handleCatChange(cat.id)}
-                                                                            className={`relative flex gap-4 transition-all place-items-center justify-start duration-300 ease-in-out text-[17px] btn 
-                                                                                ${SelectCat === cat.id? ' shadow-lg text-white border-[2px] border-univita/70  bg-unimar/95': 
-                                                                                    ( SelectCat ===null && cat.id===enlistada)?'border-[2px] border-univita/70  bg-unimar/95 text-white':'scale-98 hover:scale-101 hover:bg-white/50 bg-gray-100 border-[2px] border-univita/25  hover:text-black text-gray-600'}`}
-                                                                        >
-                                                                            <Image
-                                                                                className={` transition-all duration-300 ease-in-out ring-white ring-4 rounded-full `}
-                                                                                src={cat.img}
-                                                                                width={35}
-                                                                                height={35}
-                                                                                alt={cat.category}
-                                                                            /> 
-                                                                            {cat.category}
-                                                                            <div className={`absolute top-[35%]  right-6 size-[12px] rounded-full ${SelectCat=== cat.id ? 'ring-gray-400 ring-3 bg-gray-400' :(SelectCat===null && cat.id===enlistada ? 'ring-gray-400 ring-3 bg-gray-400': 'bg-transparent ring-3 ring-unimar' )}`}>
-                                                                                <div className={` size-full rounded-full scale-95 ${SelectCat===cat.id? 'border-white border-2 bg-univita':(SelectCat===null && cat.id===enlistada ?'border-white border-2 bg-univita':' bg-gray-100')}`}/>
-                                                                            </div>
-                                                                        </Button>
-                                                                    ))}
-                                                                </div>
-                                                            )}
-                                                            
-                                                            {!categoria &&(
-                                                                <div className={`flex flex-col gap-2 p-2 rounded-xl transition-all duration-300 w-full sm:w-[75%] md:w-auto bg-gray-300/80 shadow-md mb-3`}>
-                                                                    {catPredt.map((cat)=>(
-                                                                        <Button
-                                                                            key={cat.category} 
-                                                                            className={`relative flex gap-4 place-items-center justify-start transition-all duration-300 ease-in-out text-[17px] btn bg-gray-100  text-gray-500 border-[2px] border-univita/25`}
-                                                                        >
-                                                                            <Image
-                                                                                className={`transition-all duration-300 ease-in-out ring-white ring-4 rounded-full `}
-                                                                                src={cat.img}
-                                                                                width={35}
-                                                                                height={35}
-                                                                                alt={cat.category}
-                                                                            /> 
-                                                                            {cat.category}
-                                                                            <div className={`absolute  top-[35%]  right-6 size-[12px] rounded-full ${categoria ?'ring-gray-400 ring-3 bg-gray-400':'scale-95 bg-transparent ring-3 ring-unimar'}`}>
-                                                                                <div className={` size-full rounded-full scale-95 ${categoria ?'border-white border-2 bg-univita':' bg-gray-100'}`}/>
-                                                                            </div>
-                                                                        </Button>
-                                                                    ))}
-                                                                </div>                                        
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                            </section>
-                                        </>
-                                    )}
-                                    {isSept ===2 &&(
-                                        <>
-                                            <section className="flex flex-col space-y-5 py-4 px-3 shadow rounded-xl bg-gray-100">
-                                                <div className="section-title mt-3 flex flex-row gap-2 ml-2">
-                                                    <div className="relative size-[64px] bg-publicidad ring-4 ring-unimar rounded-2xl">
-                                                        <Image
-                                                            className=" absolute inset-0 object-contain p-2"
-                                                            src={'/file.svg'}
-                                                            alt="lol"
-                                                            fill
-                                                        />
-                                                    </div>
-                                                    <div className="text-start">
-                                                        <h3 className="text-[1.3rem] font-bold">Paso 3: Rellene con la información solicitada</h3>
-                                                    </div>
-                                                </div>
 
-                                                <div className="flex flex-col space-y-5 p-4 shadow rounded-xl bg-gray-200">
-                                                    <p className="text-[1.1rem] font-bold text-start">Información del equipo</p>
-                                                        <div className="grid grid-cols-2 p-2 gap-3 place-content-center">
-                                                            <div className="text-start space-y-3">
-                                                                <InputGroup label="Nombre del equipo" className="" For="nombre">
-                                                                    <Input className="input bg-white" name="" type="text"></Input>
-                                                                </InputGroup> 
-                                                                <InputGroup label="Madriana del equipo" className="" For="nombre">
-                                                                    <Input className="input bg-white" type="text"/>
-                                                                </InputGroup> 
-                                                                <InputGroup label="Color del uniforme" className="" For="nombre">
-                                                                    <Input className="input bg-white col-start-3" type="text"/>
-                                                                </InputGroup>                                                             
-                                                            </div>
-                                                            <InputGroup label="Logo del equipo" className="text-start" For="nombre">
-                                                                <Input className="hidden" id="sumitFile" type="file" accept="image/*"/>
-                                                                <div className=" items-center p-2 mt-2">
-                                                                    <label htmlFor="sumitFile" className="flex flex-col  h-full
-                                                                         rounded-lg border-2 border-dashed text-unimar bg-white hover:bg-white/60 text-center cursor-pointer
-                                                                         font-bold py-1  mb-1 place-items-center justify-center">
-                                                                        <div className="relative size-[58px] rounded-2xl">
+                                                    
+                                                            <div className=" lg:grid lg:grid-cols-2 py-2 px-4 gap-3 place-content-center text-start space-y-6 lg:space-y-3">
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
                                                                             <Image
                                                                                 className=" absolute inset-0 object-contain p-2"
                                                                                 src={'/file.svg'}
@@ -312,17 +311,181 @@ export function ButtonInscription(){
                                                                                 fill
                                                                             />
                                                                         </div>
-                                                                        <p>Subir un Archivo</p>
-                                                                    </label>
-                                                                    <p className="text-center">Ningún archivo seleccionado</p>
-                                                                </div>
-                                                            </InputGroup> 
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold ">Fechas</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 m-1">Inscripciones del 15 de Agosto hasta el 25 de Agosto</p>
+                                                                        <p className="text-gray-700 m-1">Inicio del 1 de Septiembre</p>
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                                            <Image
+                                                                                className=" absolute inset-0 object-contain p-2"
+                                                                                src={'/file.svg'}
+                                                                                alt="lol"
+                                                                                fill
+                                                                            />
+                                                                        </div>
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold">Deporte Seleccionado</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 ml-1">Futbol Sala</p>
+                                                                    </div>                                                            
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                                            <Image
+                                                                                className=" absolute inset-0 object-contain p-2"
+                                                                                src={'/file.svg'}
+                                                                                alt="lol"
+                                                                                fill
+                                                                            />
+                                                                        </div>
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold ">Categoria Seleccionada</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 ml-1">Categoria Masculina</p>
+                                                                    </div>  
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                                            <Image
+                                                                                className=" absolute inset-0 object-contain p-2"
+                                                                                src={'/file.svg'}
+                                                                                alt="lol"
+                                                                                fill
+                                                                            />
+                                                                        </div>
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold ">Ubicación</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 ml-1">Cancha Cubierta "nombre de la cancha"</p>
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                                            <Image
+                                                                                className=" absolute inset-0 object-contain p-2"
+                                                                                src={'/file.svg'}
+                                                                                alt="lol"
+                                                                                fill
+                                                                            />
+                                                                        </div>
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold ">Reglas Principales</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 m-1">Partidos de 2 Tiempos de 20 minutos</p>
+                                                                        <p className="text-gray-700 m-1">Máximo 8 jugadores en cancha por equipo</p>
+                                                                        <p className="text-gray-700 m-1">Sistema de eliminación directa a partir de cuartos de final</p>
+                                                                        <p className="text-gray-700 m-1">Faltas acumulativas según reglamento FIFA Futsal</p>
+                                                                    </div>    
+                                                                    <div className="space-y-2">
+                                                                    <div className="flex items-center">
+                                                                        <div className="relative size-[32px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                                            <Image
+                                                                                className=" absolute inset-0 object-contain p-2"
+                                                                                src={'/file.svg'}
+                                                                                alt="lol"
+                                                                                fill
+                                                                            />
+                                                                        </div>
+                                                                        <div className="text-start ml-3">
+                                                                            <h3 className="text-[1.1rem] font-bold ">Premios</h3>
+                                                                        </div>
+                                                                    </div>
+                                                                        <p className="text-gray-700 m-1">1er Lugar: Trofeo + 50% de descuento en el proximo Trimestre</p>
+                                                                        <p className="text-gray-700 m-1">2do Lugar: Reconocimiento 25% de descuento en el proximo Trimestre</p>
+                                                                        <p className="text-gray-700 m-1">3er Lugar: Reconocimiento</p>
+                                                                    </div>
+                                                            </div>
+                                                    
+
+
+                                                </div>
+                                                
+                                            </section>
+                                            
+                                        </>
+                                    )}
+                                     {isSept ===3 &&(
+                                        <>
+                                            <section className="flex flex-col py-4 px-3 shadow rounded-xl bg-gray-100">
+
+                                                <div className="section-title  flex flex-col space-y-4">
+                                                    <div className="flex place-items-center mt-3 gap-2 ml-2">
+                                                        <div className="relative size-[52px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                            <Image
+                                                                className=" absolute inset-0 object-contain p-2"
+                                                                src={'/file.svg'}
+                                                                alt="lol"
+                                                                fill
+                                                            />
                                                         </div>
+                                                        <div className="text-start">
+                                                            <h3 className="text-[1.3rem] font-bold">Información del Equipo</h3>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex flex-col border-b-2 border-gray-400">
+                                                            <div className="lg:grid lg:grid-cols-2 py-4 mb-6 px-2 gap-3 place-content-center ">
+                                                                <div className="text-start space-y-3">
+                                                                    <InputGroup label="Nombre del equipo" className="" For="nombre">
+                                                                        <Input className="input bg-white" name="" type="text"></Input>
+                                                                    </InputGroup> 
+                                                                    <InputGroup label="Madriana del equipo" className="" For="nombre">
+                                                                        <Input className="input bg-white" type="text"/>
+                                                                    </InputGroup> 
+                                                                    <InputGroup label="Color del uniforme" className="" For="nombre">
+                                                                        <Input className="input bg-white col-start-3" type="text"/>
+                                                                    </InputGroup>                                                             
+                                                                </div>
+                                                                <InputGroup label="Logo del equipo" className="text-start" For="nombre">
+                                                                    <Input className="hidden" id="sumitFile" type="file" accept="image/*"/>
+                                                                    <div className=" items-center p-1 h-full">
+                                                                        <label htmlFor="sumitFile" className="flex flex-col  h-full
+                                                                            rounded-lg border-2 border-dashed  bg-white hover:bg-white/60 text-center cursor-pointer
+                                                                            font-bold py-1  mb-1 place-items-center justify-center">
+                                                                            <div className="relative size-[58px] rounded-2xl">
+                                                                                <Image
+                                                                                    className=" absolute inset-0 object-contain p-2"
+                                                                                    src={'/file.svg'}
+                                                                                    alt="lol"
+                                                                                    fill
+                                                                                />
+                                                                            </div>
+                                                                            <p>Subir un Archivo</p>
+                                                                        </label>
+                                                                        
+                                                                    </div>
+                                                                </InputGroup> 
+                                                            </div>
+                                                    </div>
+
+
                                                 </div>
 
-                                                <div className="flex flex-col space-y-5 p-4 shadow rounded-xl bg-gray-200">
-                                                    <p className="text-[1.1rem] font-bold text-start m-0">Información del delegado</p>
-                                                    <div className="text-start space-y-3 flex flex-row gap-3 p-2 ">
+
+                                                <div className="flex flex-col space-y-5 py-4 px-2 border-b-2 border-gray-400">
+                                                    <div className="flex place-items-center mt-3 gap-2">
+                                                        <div className="relative size-[52px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                            <Image
+                                                                className=" absolute inset-0 object-contain p-2"
+                                                                src={'/file.svg'}
+                                                                alt="lol"
+                                                                fill
+                                                            />
+                                                        </div>
+                                                        <div className="text-start">
+                                                            <h3 className="text-[1.3rem] font-bold">Información del Delegado</h3>
+                                                        </div>
+                                                    </div>
+                                                    <div className="text-start space-y-3 flex flex-col lg:flex-row gap-3 p-2 ">
                                                         <InputGroup label="Correo institucional del delegado" className="w-full" For="nombre">
                                                             <Input className="input bg-white" name="" type="text"></Input>
                                                         </InputGroup> 
@@ -332,10 +495,22 @@ export function ButtonInscription(){
                                                     </div>
                                                 </div>
 
-                                                <div className="flex flex-col space-y-5 p-4 shadow rounded-xl bg-gray-200">
-                                                    <p className="text-[1.1rem] font-bold text-start m-0">Información de los Integrantes del Equipo</p>
+                                                <div className="flex flex-col space-y-5 py-4 px-2">
+                                                    <div className="flex place-items-center mt-3 gap-2 ml-2">
+                                                        <div className="relative size-[52px] bg-publicidad ring-4 ring-unimar rounded-2xl">
+                                                            <Image
+                                                                className=" absolute inset-0 object-contain p-2"
+                                                                src={'/file.svg'}
+                                                                alt="lol"
+                                                                fill
+                                                            />
+                                                        </div>
+                                                        <div className="text-start">
+                                                            <h3 className="text-[1.3rem] font-bold">Información de los Integrantes del Equipo</h3>
+                                                        </div>
+                                                    </div>                                                    
                                                     
-                                                    <div className="text-start  flex flex-wrap gap-3 p-4 bg-gray-300 rounded-lg ">
+                                                    <div className="text-start  flex flex-wrap gap-3 p-4 bg-gray-200/65 shadow-md rounded-lg ">
                                                         <InputGroup label="Dorsal" className="w-[64px]" For="Dorsal">
                                                             <Input className="input bg-white"id="Dorsal" type="text"></Input>
                                                         </InputGroup> 
@@ -348,7 +523,8 @@ export function ButtonInscription(){
                                                         <InputGroup label="Numero del Telefono" className="" For="nombre">
                                                             <Input className="input bg-white" type="text"/>
                                                         </InputGroup>
-                                                        <Button className="flex items-center gap-3 cursor-pointer bg-white p-2 rounded-2xl">
+                                                    </div>
+                                                        <Button className="flex items-center place-content-center border-univita gap-3 cursor-pointer border-dashed border-3 p-2 rounded-2xl">
                                                             <div className="relative size-[32px] ring-4 ring-unimar rounded-full">
                                                                 <Image
                                                                     className=" absolute inset-0 object-contain p-2"
@@ -357,9 +533,8 @@ export function ButtonInscription(){
                                                                     fill
                                                                 />
                                                             </div>
-                                                            <p className="text-unimar font-bold">Añadir integrante</p>
+                                                            <p className=" font-bold">Añadir integrante</p>
                                                         </Button>  
-                                                    </div>
                                                 </div>
                                                 
                                             </section>
@@ -373,7 +548,7 @@ export function ButtonInscription(){
 
                         </div>
 
-                        <FooterModal className="flex-none" BTmain={isSept > 1 ? 'Inscribirse':'Siguiente'} BTSecond={isSept > 1 ? 'Atras':'Cerrar'} onClose={ isSept > 1? prev: handleCloseModal} onSumit={isSept > 1 ? handleCloseModal : next}/>
+                        <FooterModal className="flex-none" BTmain={isSept > 1 ? (isSept > 2 ? 'Finalizar Inscripción': 'Siguiente'):'Siguiente'} BTSecond={isSept > 1 ? 'Atras': (isSept > 2 ? 'Atras': 'Cerrar')} onClose={ isSept > 1? prev: (isSept > 2 ? prev :  handleCloseModal)} onSumit={isSept > 1 ? (isSept > 2 ?  handleCloseModal :  next) : next}/>
                             
                         
                     </ContainModal>
