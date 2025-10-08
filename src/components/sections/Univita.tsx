@@ -36,9 +36,9 @@ export default function Univita() {
           {univita.map((card)=>(
             <Card key={card.id} className=' group w-full h-full bg-white text-center rounded-xl scale-90 hover:scale-88 shadow-2xl cursor-pointer transition-transform transform duration-300 ease-in-out'>
                 <ActiveLink href={card.url} className=' size-full space-y-3 p-6 flex flex-col place-content-center place-items-center text-center'>
-                      <div className='p-1.5  bg-blue-100 rounded-full flex items-center justify-center mb-4'>
+                      <div className='p-1.5  bg-blue-200/80 rounded-full flex items-center justify-center mb-4'>
                         <Image
-                            className="w-[8rem] rounded-full group-hover:scale-90  transition-all duration-300 ease-in-out"
+                            className="w-[8rem] rounded-full group-hover:scale-90  transition-all duration-300 ease-in-out bg-unimar"
                             src={card.img}
                             width={500}
                             height={500}

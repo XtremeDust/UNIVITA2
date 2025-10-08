@@ -21,12 +21,12 @@ export function navigate(){
                                     ${ruta===card.url ? 'hidden':'visible hover:scale-103 hover:ring-0'}`}>
                                 <ActiveLink href={card.url} className="size-full p-6">
                                     <div className="flex flex-col items-center justify-center p-4 h-full">
-                                        <div className="p-2 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                                        <div className="p-2 bg-blue-200/80 rounded-full flex items-center justify-center mb-4">
                                             <Image
-                                                className=" p-2 md:p-0 transition-all duration-300 ease-in-out  group-hover:scale-92"
+                                                className=" w-[7rem] p-2 md:p-0 transition-all duration-300 ease-in  group-hover:scale-93 bg-unimar rounded-full"
                                                 src={card.img}
-                                                width={80}
-                                                height={80}
+                                                width={500}
+                                                height={500}
                                                 alt={card.title}
                                                 /> 
                                         </div>
