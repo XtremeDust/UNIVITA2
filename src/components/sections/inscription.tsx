@@ -86,6 +86,7 @@ export function ButtonInscription(){
                 setCategory(null);
 
                 setDeport('Seleccione un deporte');
+                setCategory('Seleccione una Categoria');
                 setMDep(false);
             }else{
                 setSport(id);
@@ -102,7 +103,7 @@ export function ButtonInscription(){
             if(select){
                 setSelectCat(null);
 
-                setCategory('Seleccione un deporte');
+                setCategory('Seleccione una Categoria');
                 setMCat(false);
             }else{
                 setSelectCat(id);
@@ -219,7 +220,7 @@ export function ButtonInscription(){
 
              <Modal state={OpenModal}>
                 {OpenModal &&(
-                    <ContainModal className={`grid-flow-row-dense md:flex md:flex-col text-black ${ isSept===1 ? 'size-[95%]  md:w-[75%] md:h-[75%] xl:w-[50%]':(isSept===2 ? 'w-[95%] h-[95%] md:w-[85%] md:h-[90%] xl:w-[65%] xl:h-[95%]':'size-[95%] md:h-[95%]  xl:w-[50%]') }  space-y-3 overflow-y-auto bg-gray-200`}>
+                    <ContainModal className={`grid-flow-row-dense md:flex md:flex-col text-black ${ isSept===1 ? 'size-[95%]  md:size-[90%] lg:h-[90%] xl:w-[60%]':(isSept===2 ? 'w-[95%] h-[95%] md:w-[85%] md:h-[90%]  xl:h-[95%]':'size-[95%] md:h-[95%]  xl:w-[55%]') }  space-y-3 overflow-y-auto bg-gray-200`}>
                         <HeaderModal className="flex-none" onClose={handleCloseModal}>
                             <div className="text-start">
                                 <h2 className="ml-5 title">Formulario de Inscripción</h2>
@@ -273,14 +274,14 @@ export function ButtonInscription(){
                                                         <InputGroup For="deporte" label="Deporte" labelClass="text-gray-700">
                                                             <div className="relative"  ref={menuOut} onClick={()=>(setMDep(!OpenDep))}>
                                                                 <Image
-                                                                    className="absolute top-1/2 -translate-y-1/2 ml-1.5 size-[2.5rem] bg-unimar rounded-full "
+                                                                    className="absolute top-1/2 -translate-y-1/2 ml-1.5 size-[2.5rem] bg-unimar rounded-full"
                                                                     src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759870088/Group_365_no_blue_wkn7xq.png'}
                                                                     alt="deportes"
                                                                     width={100}
                                                                     height={100}
                                                                 />
                                                                 <Input type='text' id="deporte" className="cursor-pointer input w-full pl-13 pr-3 py-3 placeholder:text-black" required readOnly  value={isDeport === null? "Seleccione un deporte"  : `${isDeport}`}/>
-                                                                    <Button type="button" className=" cursor-pointer absolute right-3 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
+                                                                    <Button type="button" className=" cursor-pointer absolute right-1 md:right-1 lg:right-4 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
                                                                         <Image
                                                                         className={`size-[1rem] transition-transform duration-300 ease-in-out ${OpenDep? 'rotate-180':' rotate-360'}`}
                                                                         src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759101273/flecha-hacia-abajo-para-navegar_zixe1b.png'}
@@ -318,8 +319,8 @@ export function ButtonInscription(){
                                                                     width={100}
                                                                     height={100}
                                                                 />
-                                                                <Input type='text' id="Categoria" className="cursor-pointer input w-full pl-13 pr-3 py-3 placeholder:text-black"  placeholder="Seleccione una Categoria" readOnly  value={isCategory === null? "Seleccione un deporte"  : `${isCategory}`} required />
-                                                                    <Button type="button" className=" cursor-pointer absolute right-3 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
+                                                                <Input type='text' id="Categoria" className="cursor-pointer input w-full pl-13 pr-3 py-3 disabled:text-gray-500 text-balck"  placeholder="Seleccione una Categoria" readOnly  value={isCategory === null? "Seleccione una Categoria"  : `${isCategory}`} required  />
+                                                                    <Button type="button" className=" cursor-pointer absolute top-1/2 right-1 md:right-1 lg:right-4 flex justify-center -translate-y-1/2 -translate-x-1/2 ">
                                                                         <Image
                                                                         className={`size-[1rem] transition-transform duration-300 ease-in-out ${OpenCat && isDeport!=='Seleccione un deporte' ? 'rotate-180':' rotate-360'}`}
                                                                         src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759101273/flecha-hacia-abajo-para-navegar_zixe1b.png'}
@@ -330,7 +331,7 @@ export function ButtonInscription(){
                                                                     </Button>
 
                                                                     
-                                                                        <div className={`absolute z-20 bg-white shadow-lg mt-1.5 rounded-xl overflow-hidden overflow-y-auto ${OpenCat? 'w-full h-auto' : 'max-h-0 opacity-0  pointer-events-none'}`}>
+                                                                        <div className={`absolute z-20 bg-white shadow-lg mt-1.5 rounded-xl overflow-hidden overflow-y-auto ${OpenCat? 'w-full h-auto' : 'max-h-0 opacity-0  pointer-events-none'}`} >
                                                                             {categoria?.categoria.map((cat)=>(
                                                                                 <div key={cat.id} id={cat.category} className="w-full flex gap-2 p-2 hover:bg-unimar/15 place-items-center" onClick={()=>handleSelectC(cat.id, cat.category)}>
                                                                                     <Image

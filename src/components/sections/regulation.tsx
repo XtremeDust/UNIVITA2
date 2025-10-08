@@ -47,6 +47,7 @@ export function Sport(){
                             <Button className='w-full flex items-center text-start p-2 px-3 cursor-pointer' onClick={()=>handleClickSport(norma.id)} onMouseEnter={() => handleHovered(norma.id)} onMouseLeave={() => handleHovered(norma.id)}>
                                 <div className="relative size-18 ring-4 rounded-full ring-sky-400 ">
                                     <Image
+                                        className="bg-unimar rounded-full"
                                         src={norma.img}
                                         alt="img"
                                         width={100}
