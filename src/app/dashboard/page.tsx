@@ -2,15 +2,18 @@ import { Inconsolata, Literata } from "next/font/google";
 import Image from "next/image";
 import { url } from "inspector";
 import { title } from "process";
-import Header from "@/components/common/MainHeader";
-import Footer from "@/components/common/MainFooter";
+import Header from "@/components/common/dashHeader";
+import Aside from "@/components/common/dashSideBar";
+import Footer from "@/components/common/dashFooter";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] min-h-dvh bg-amber-100">
+    <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[250px_1fr] min-h-dvh bg-gray-200">
+      <Header className="col-start-2 bg-unimar w-full h-[3.5rem]"/>
 
-
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <Aside className="bg-white text-black p-1 overflow-hidden row-span-full h-full"/>
+      
+      <main className="p-4 text-black flex flex-col gap-[32px]  items-center sm:items-start">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -58,53 +61,11 @@ export default function Home() {
           </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      
+
+
+      <Footer className="col-start-2 text-black p-2 w-full text-center bg-gray-300"/>
+
     </div>
   );
 }

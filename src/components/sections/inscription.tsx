@@ -282,7 +282,7 @@ export function ButtonInscription(){
                                                                 <Input type='text' id="deporte" className="cursor-pointer input w-full pl-13 pr-3 py-3 placeholder:text-black" required readOnly  value={isDeport === null? "Seleccione un deporte"  : `${isDeport}`}/>
                                                                     <Button type="button" className=" cursor-pointer absolute right-3 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
                                                                         <Image
-                                                                        className="size-[1rem]"
+                                                                        className={`size-[1rem] transition-transform duration-300 ease-in-out ${OpenDep? 'rotate-180':' rotate-360'}`}
                                                                         src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759101273/flecha-hacia-abajo-para-navegar_zixe1b.png'}
                                                                         alt="desplegar"
                                                                         width={100}
@@ -321,7 +321,7 @@ export function ButtonInscription(){
                                                                 <Input type='text' id="Categoria" className="cursor-pointer input w-full pl-13 pr-3 py-3 placeholder:text-black"  placeholder="Seleccione una Categoria" readOnly  value={isCategory === null? "Seleccione un deporte"  : `${isCategory}`} required />
                                                                     <Button type="button" className=" cursor-pointer absolute right-3 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
                                                                         <Image
-                                                                        className="size-[1rem]"
+                                                                        className={`size-[1rem] transition-transform duration-300 ease-in-out ${OpenCat && isDeport!=='Seleccione un deporte' ? 'rotate-180':' rotate-360'}`}
                                                                         src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759101273/flecha-hacia-abajo-para-navegar_zixe1b.png'}
                                                                         alt="desplegar"
                                                                         width={100}
