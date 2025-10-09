@@ -42,44 +42,104 @@ export default function Comment() {
         </div>
         <Modal state={OpenModal}>
             {OpenModal &&(
-                <ContainModal className="bg-gray-100 relative grid-flow-row-dense space-y-6 w-sm sm:w-xl max-h-90% min-w-80 min-h-72 overflow-y-auto">
+                <ContainModal className="bg-white relative grid-flow-row-dense space-y-6 w-sm sm:w-xl max-h-90% min-w-80 min-h-72 overflow-y-auto">
                     
-                    <HeaderModal onClose={handleCloseModal} className="flex-none text-[1.5rem] font-bold">Buzon de Comentarios</HeaderModal>                            
+                    <HeaderModal onClose={handleCloseModal} className="flex-none text-[1.5rem] font-bold">
+                        Buzón de Comentarios
+                    <p className="font-normal text-gray-600 text-[18px]">Nos encantaría conocer tu opinión</p>    
+                    </HeaderModal>                            
 
-                    <div className="main-modal flex-grow space-y-3 place-items-center">
+                    <section className="w-full place-items-center">
+                        <div className="main-modal flex-grow space-y-3 md:w-[90%]">
 
-                        <div className="Email flex items-center gap-2 md:gap-3 flex-col">
-                            <InputGroup For="Email" label="Correo Institucional" labelClass="text-[18px] text-start">
-                                <Input id="Email" className="input-text w-[18rem] sm:w-sm text-[18px]" type="text" placeholder="example.1234@unimar.edu.ve"/>
-                            </InputGroup>
-
-                            <div className="Seletion flex flex-row space-x-3  w-[18rem] sm:w-sm">
-                                <InputGroup For="public" label="Publico" className={`flex flex-row-reverse gap-2 ${isChecked === 'public'? 'text-black':'text-gray-500'}`}>
-                                    <Input id="public" type="radio" name="correo" value="public" checked={isChecked === 'public'} onChange={handleChange}/>
+                            <div className="Email flex  space-y-3 md:gap-3 flex-col">
+                                <InputGroup For="Email" label="Correo Institucional" labelClass="text-[18px] text-start" className="w-full" >
+                                    <div className="relative">
+                                        <Image
+                                            className="absolute left-3 top-3 h-4 w-4 text-slate-400"
+                                            src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905312/correo-electronico_kqhai5.png'}
+                                            alt="correo"
+                                            width={50}
+                                            height={50}
+                                        />
+                                        <Input type="Email" id="Email" className="input w-full pl-10 pr-3 py-2" placeholder="example.1234@unimar.edu.ve" required/>
+                                    </div>
                                 </InputGroup>
 
-                                <InputGroup For="private" label="Anonimo" className={`flex flex-row-reverse gap-2 ${isChecked === 'private'? 'text-black':'text-gray-500'}`}>
-                                    <Input id="private" type="radio" name="correo" value="private" checked={isChecked === 'private'} onChange={handleChange}/>
-                                </InputGroup>
-                            
+                                <div className="space-y-2">
+                                    <div className="visibilidad con imagenes Seletion flex flex-row space-x-3  ">
+                                        <InputGroup For="Seletion" label="Visibilidad del comentario" labelClass="col-span-3" className="w-full text-start">
+                                        <div className="w-full grid grid-cols-2 gap-3">
+                                        <Button className={`relative bg-gray-100 rounded-2xl h-24 cursor-pointer ${isChecked === 'public'? 'text-unimar border-4 border-unimar':'text-gray-500 border-4 border-gray-500'}`}  value="public" onClick={()=>setIsChecked('public')}>
+                                                <Image
+                                                className={`absolute object-cover scale-50 -translate-y-2.5 ${isChecked === 'public'? '':'grayscale'}`}
+                                                    src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905672/ver_1_errsdi.png'}
+                                                    alt="visible"
+                                                    fill
+                                                />
+                                                <p className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 font-semibold`}>Público</p>
+
+                                            </Button>
+                                            <Button className={`relative bg-gray-100 rounded-2xl h-24 cursor-pointer ${isChecked === 'private'? 'text-unimar border-4 border-unimar':'text-gray-500 border-4 border-gray-500'}`} value={'private'} onClick={()=>setIsChecked('private')}>
+                                                <Image
+                                                className={`absolute object-cover scale-50 -translate-y-2.5 ${isChecked === 'private'? '':'grayscale'}`}
+                                                    src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1758905672/ocultar_1_mdw2qo.png'}
+                                                    alt="invisible"
+                                                    fill
+                                                />
+                                                <p className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 font-semibold `}>Anónimo</p>
+                                            </Button>
+
+
+                                        {/*
+                                            <InputGroup For="public" label="Público" className={`flex flex-row-reverse gap-2 ${isChecked === 'public'? 'text-black':'text-gray-500'}`}>
+                                                <Input id="public" type="radio" name="correo" value="public" checked={isChecked === 'public'} onChange={handleChange}/>
+                                            </InputGroup>
+
+                                            <InputGroup For="private" label="Anónimo" className={`flex flex-row-reverse gap-2 ${isChecked === 'private'? 'text-black':'text-gray-500'}`}>
+                                                <Input id="private" type="radio" name="correo" value="private" checked={isChecked === 'private'} onChange={handleChange}/>
+                                            </InputGroup>
+                                        */}
+                                        </div>
+                                        </InputGroup>
+                                    
+                                    </div>
+
+                                    {/*eliminar */}
+                                    <div className="Seletion  flex-row space-x-3 hidden">
+                                        <InputGroup For="Seletion" label="Visibilidad del comentario" labelClass="col-span-3" className="w-full gap-1 grid grid-cols-3 place-items-start">
+                                        <>
+                                            <InputGroup For="public" label="Público" className={`flex flex-row-reverse gap-2 ${isChecked === 'public'? 'text-black':'text-gray-500'}`}>
+                                                <Input id="public" type="radio" name="correo" value="public" checked={isChecked === 'public'} onChange={handleChange}/>
+                                            </InputGroup>
+
+                                            <InputGroup For="private" label="Anónimo" className={`flex flex-row-reverse gap-2 ${isChecked === 'private'? 'text-black':'text-gray-500'}`}>
+                                                <Input id="private" type="radio" name="correo" value="private" checked={isChecked === 'private'} onChange={handleChange}/>
+                                            </InputGroup>
+                                        </>
+                                        </InputGroup>
+                                    
+                                    </div>
+
+                                    <span className={`text-[16px]  text-justify text-gray-700 ${isChecked==='public' ? 'flex': 'hidden'}`}>
+                                        Si eliges 'Público', tu informacion de usuario será visible en la sección  de comentarios
+                                    </span>
+
+                                    <span className={`text-[16px] text-justify text-gray-700 ${isChecked==='private' ? 'block': 'hidden'}`}>
+                                        Si eliges 'Anónimo', tu información de usuario no será visible en la sección  de comentarios
+                                    </span>
+                                </div>
+
                             </div>
-                                <span className={`text-[16px] w-[18rem] sm:w-sm text-justify ${isChecked==='public' ? 'flex': 'hidden'}`}>
-                                    Su informacion de usuario podra ser vista en la seccion de comentarios
-                                </span>
 
-                                <span className={`text-[16px] w-[18rem] sm:w-sm text-justify ${isChecked==='private' ? 'block': 'hidden'}`}>
-                                    Su informacion de usuario no sera vista en la seccion de comentarios
-                                </span>
+                            <div className="Coment flex space-y-3 md:gap-3 flex-col">
+                                <InputGroup label="Comentario" For="Comentario" labelClass="text-[18px] text-start ">
+                                    <TextArea id="Comentario" className="h-[8rem] input " placeholder="Escribe tu comentario aquí..."/>
+                                </InputGroup>
+                            </div>
 
                         </div>
-
-                        <div className="Coment flex items-start md:items-center">
-                            <InputGroup label="Comentario" For="Coment" labelClass="text-[18px] text-start ">
-                                <TextArea id="Coment" className="w-[18rem] sm:w-sm h-[8rem]"/>
-                            </InputGroup>
-                        </div>
-
-                    </div>
+                    </section>
 
                     <FooterModal BTmain="Enviar" BTSecond="Cerrar" onClose={handleCloseModal} className="flex-none mt-8"/>
                         
