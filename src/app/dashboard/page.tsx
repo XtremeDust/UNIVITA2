@@ -11,7 +11,7 @@ export default function Home() {
     <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[250px_1fr] min-h-dvh bg-gray-200">
       <Header className="col-start-2 bg-unimar w-full h-[3.5rem]"/>
 
-      <Aside className="bg-white text-black p-1 overflow-hidden row-span-full h-full"/>
+      <Aside className="relative bg-white text-black p-1 overflow-hidden row-span-full h-full "/>
       
       <main className="p-4 text-black flex flex-col gap-[32px]  items-center sm:items-start">
         <Image
