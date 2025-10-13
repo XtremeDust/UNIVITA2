@@ -6,7 +6,10 @@ type HeaderProps = HTMLAttributes<HTMLDivElement>;
 export default function Header({...props}:HeaderProps){
     return(
         <div {...props}>
-           Home
+
+          <div>
+            home
+          </div>
         </div>
     );
 }

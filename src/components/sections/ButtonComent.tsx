@@ -42,7 +42,7 @@ export default function Comment() {
         </div>
         <Modal state={OpenModal}>
             {OpenModal &&(
-                <ContainModal className="bg-white relative grid-flow-row-dense space-y-6 w-sm sm:w-xl max-h-90% min-w-80 min-h-72 overflow-y-auto">
+                <ContainModal className="bg-white relative grid-flow-row-dense space-y-6 w-[95%] sm:w-[85%] lg:w-[40%] xl:w-[30%] overflow-y-auto">
                     
                     <HeaderModal onClose={handleCloseModal} className="flex-none text-[1.5rem] font-bold">
                         Buzón de Comentarios

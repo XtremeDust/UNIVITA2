@@ -21,8 +21,8 @@ export default function Events(){
         <div className="space-y-3 mb-4">
             <section className="text-events flex flex-col text-center place-items-center mt-6 md:mt-3">
                 <h3  className="title text-black">Campeonatos y Eventos Deportivos</h3>
-                <p className="w-[90%] text-center text-[18px] text-gray-600">Mantente informado sobre los partidos y eventos deportivos
-
+                <p className="w-[90%] text-center text-[18px] text-gray-600">
+                    Acceso inmediato a la información, resultados en vivo y la agenda completa de la acción deportiva.
                 </p>
 
             </section>
@@ -53,7 +53,7 @@ export default function Events(){
                 ))}
              </section>
 
-            <section className="notificar p-2">
+            <section className="notificar p-2 text-white">
                 <motion.div className="relative text-events flex flex-col text-center place-items-center mt-6 md:mt-3 space-y-4 h-94  place-content-center rounded-xl"
                     animate={{
                         backgroundColor:['#0d4564','#0d4e90','#0d4564'],
@@ -66,15 +66,15 @@ export default function Events(){
                 >
 
                     <div className="z-10 place-items-center space-y-1">
-                        <h3  className="title ">¡No te quedes en la banca!</h3>
+                        <h3  className="title ">¡Toma la Delantera en el Próximo Evento!</h3>
                         <p className="w-[95%] xl:w-[80%] text-center text-[18px] ">
-                        El próximo evento está a la vuelta de la esquina. Se el primero en enterarte de las inscripciones, noticias exclusivas y los detalles de los eventos
+                        Asegura tu lugar en la línea de partida. Únete ahora para recibir acceso prioritario a las inscripciones, noticias exclusivas y todos los detalles cruciales de los eventos.
                         </p>
                     </div>
 
-                    <div className="z-10 relative bg-white rounded-lg shadow-2xl mt-3 py-6 lg:py-6.5 w-9/10 sm:w-sm md:w-md lg:w-[26rem] 2xl:w-[25%] ">
-                            <Input type="email" placeholder="example.0123@unimar.edu.ve" className="absolute z-10 top-0 inset-0 text-sm md:text-md lg:text-lg text-black rounded-lg sm:pl-5 pr-22.5 sm:pr-33 2xl:pr-40 focus:ring-[1px] ring ring-univita focus:ring-gray-700 focus:outline-none"/>
-                            <Button className="absolute contain flex gap-2 cursor-pointer font-semibold z-10 right-1 top-[3px]  bg-unimar text-sm md:text-[15px] px-1 sm:px-2.5 py-2 lg:py-2.5 rounded-lg hover:opacity-95 transition-all duration-300 place-items-center"
+                    <div className="z-10  relative bg-white rounded-lg shadow-2xl mt-3 py-6 lg:py-6.5 w-[90%] sm:w-[80%] md:w-[50%] lg:w-[33%] 2xl:w-[30%] ">
+                            <Input type="email" placeholder="example.0123@unimar.edu.ve" className="absolute z-10 top-0 inset-0 text-sm md:text-md lg:text-lg text-black rounded-lg sm:pl-5 pr-22.5 sm:pr-23  focus:ring-[1px] ring ring-univita focus:ring-gray-700 focus:outline-none"/>
+                            <Button className="absolute contain flex px-6 cursor-pointer font-semibold z-10 right-1 top-[3px]  bg-unimar text-sm md:text-[15px] sm:px-2.5 py-2 lg:py-2.5 md:px-6 rounded-lg hover:opacity-95 transition-all duration-300 place-items-center"
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}
                             >
@@ -96,7 +96,7 @@ export default function Events(){
                                         
                                     />
                                 </motion.div >
-                                Notificarme
+                                
                             </Button>
                     </div>
                     

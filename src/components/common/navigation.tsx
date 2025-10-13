@@ -8,9 +8,9 @@ export function navigate(){
         const ruta = usePathname();
     return(
         <section className=" max-w-screen-2xl space-y-2  mx-auto p-4 md:p-8 text-black">
-                <h2 className="title text-center">Quizas te interece</h2>
+                <h2 className="title text-center">¡Tu Éxito Universitario Comienza Aquí!</h2>
                 <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
-                  Encuentra información relevante y recursos útiles para tus actividades académicas y deportivas en la universidad.
+                  Acceso directo e inmediato a herramientas esenciales para dominar tu vida académica y deportiva.
                 </p>
                 <div className="flex flex-wrap justify-evenly gap-6">
                 {univita.map((card)=>(

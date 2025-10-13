@@ -150,16 +150,16 @@ export function ButtonInscription(){
             >
                 <>
                     <div className="absolute inset-0 z-10 backdrop-blur-md bg-black/40"/>
-                    <section className="flex flex-col space-y-1 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <h2 className="sm:text-[1.3rem] title text-center font-bold">Inscríbete en tus eventos deportivos</h2>
+                    <section className="flex flex-col text-white absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <h2 className="sm:text-[1.3rem] title text-center font-bold">¡Lleva tu Pasión a la Cancha!</h2>
                         <div className="gap-5 flex flex-col items-center justify-center size-full">
-                            <p className=" text-sm md:text-lg text-center w-sm sm:w-[75%]">Tu pasión por el deporte ahora está a un clic de distancia. Inscribrete de manera rápida y secilla.</p>
+                            <p className=" text-sm md:text-lg text-center w-sm sm:w-[75%]">Tu momento de competir y ganar está a solo un clic. Asegura tu lugar en la línea de salida con un proceso instantáneo y enfocado en ti.</p>
                             <Button className="btn-primary h-[3rem] xl:h-[4rem] flex place-items-center group not-hover:gap-0 hover:gap-3 transition-all"
                                 onClick={handleOpenModal} 
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}
                             >
-                                ¡Quiero inscribirme!
+                                <p className="text-[14px]">¡Asegurar Mi Cupo Ahora!</p>
                                 <motion.div className="m-0 group-hover:w-6 h-full relative"
                                     variants={iconMove}
                                     animate={isHovered?'hover':'inicial'}
@@ -180,8 +180,8 @@ export function ButtonInscription(){
             <section className=" space-y-10 bg-gray-100">
                 <section className="flex flex-col p-3 space-y-12 text-black place-content-center place-items-center text-center m-0">
                     <div className="mb-5 place-content-center place-items-center">
-                        <h3 className='title text-gray-800'>Optimiza tu Tiempo, Maximiza tu Energía</h3>
-                        <p className="text-sm md:text-lg w-sm md:w-md xl:w-lg 2xl:w-2xl text-gray-600 text-center">Nuestro proceso de Inscripción esta diseñado para que dediques menos tiempo al papeleo y más a lo que amas: competir y entrenar</p>
+                        <h3 className='title text-gray-800'>Tu Enfoque: Más Acción, Cero Fricción</h3>
+                        <p className="text-sm md:text-lg w-sm md:w-md xl:w-lg 2xl:w-2xl text-gray-600 text-center">Nuestro proceso de registro está diseñado para ti: libera tu tiempo de tareas administrativas para que puedas dedicarte 100% a la victoria: competir y entrenar.</p>
                     </div>
                      
                      <div className=" flex flex-col lg:flex-row w-full justify-evenly gap-3">
@@ -271,8 +271,8 @@ export function ButtonInscription(){
                                                 </div>
                                                 <div className="flex flex-col md:grid md:grid-cols-2 gap-3 text-start p-3">
                                                 
-                                                        <InputGroup For="deporte" label="Deporte" labelClass="text-gray-700">
-                                                            <div className="relative"  ref={menuOut} onClick={()=>(setMDep(!OpenDep))}>
+                                                    <InputGroup For="deporte" label="Deporte" labelClass="text-gray-700">
+                                                        <div className="relative"  ref={menuOut} onClick={()=>(setMDep(!OpenDep))}>
                                                                 <Image
                                                                     className="absolute top-1/2 -translate-y-1/2 ml-1.5 size-[2.5rem] bg-unimar rounded-full"
                                                                     src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759870088/Group_365_no_blue_wkn7xq.png'}

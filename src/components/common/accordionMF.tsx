@@ -13,7 +13,7 @@ const StatePanel = (index:number) =>{
  };
 
     return(
-        <div className="grid items-center lg:hidden w-full"> 
+        <div className="grid items-center lg:hidden w-full text-white"> 
             <div className="w-full bg-white p-3">
                 <Redes/>         
             </div>  

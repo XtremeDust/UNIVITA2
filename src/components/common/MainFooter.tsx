@@ -18,13 +18,13 @@ function Footer(){
             
             */}
             <img src="https://res.cloudinary.com/dnfvfft3w/image/upload/v1753574382/logo-unimar-22_fmrgjq.png" alt="logo" className="w-44"/>
-            <p className="text-[12px] w-55 md:ml-2 xl:ml-0 xl:w-70 lg:p-2 ">Av. Concepción Mariño, Sector El Toporo, El Valle del Espíritu Santo, Edo. Nueva Esparta, Venezuela.</p>
+            <p className="text-[12px] w-55 md:ml-2 xl:ml-0 xl:w-70 lg:p-2 text-white ">Av. Concepción Mariño, Sector El Toporo, El Valle del Espíritu Santo, Edo. Nueva Esparta, Venezuela.</p>
         </div>
 
         <LicksF/>
         <AccordionF/>
         
-        <div className=" text-center w-full p-2 text-[11px] lg:col-span-5">
+        <div className=" text-center w-full p-2 text-[11px] lg:col-span-5 text-white">
             © Copyright 2025 Walas de Margarita, Rif: J-50760740-0. Isla de Margarita - Venezuela.
         </div>
       </footer>

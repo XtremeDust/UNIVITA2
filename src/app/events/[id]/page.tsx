@@ -33,8 +33,8 @@ export default async function ID({params}:PropsID){
                     />
                     <div className='space-y-5 my-5'>
                         <section className="text-partidos flex flex-col text-center place-items-center mt-6 md:mt-3">
-                            <h3  className="title text-black">Partidos Unimar</h3>
-                            <p className="w-[90%] text-[18px] text-gray-600">Mantente informado sobre los partidos de tus equipos favoritos</p>
+                            <h3  className="title text-black">¡Sigue a tus Campeones Unimar!</h3>
+                            <p className="w-[90%] text-[18px] text-gray-600">Accede en vivo a la emoción, resultados y agenda completa de tus equipos favoritos.</p>
                         </section>
 
                         <section className='Partidos w-full flex flex-col text-2xl items-center justify-center overflow-hidden'>

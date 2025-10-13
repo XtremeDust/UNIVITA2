@@ -34,9 +34,9 @@ export function Sport(){
     return(
         <>
             <section className="encabezado text-black flex flex-col gap-1 px-5 text-center">
-                <h2 className="title">Normativas, guias y reglamentos</h2>
+                <h2 className="title">Normativas, guías y reglamentos</h2>
                 <span className="text-sm md:text-lg">
-                    Toda gran experiencia deportiva y cultural se construye sobre bases sólidas. Aquí podrás consultar las normativas, guías y reglamentos que orientan nuestra comunidad, asegurando un entorno justo, organizado y transparente donde cada participación suma al espíritu universitario.
+                    Toda gran experiencia comienza con reglas claras y justas. Accede de inmediato a las guías y normativas que garantizan un entorno justo, seguro y transparente. Descubre cómo tu participación suma valor al espíritu de nuestra comunidad.
                 </span>
             </section>
 
@@ -45,9 +45,9 @@ export function Sport(){
                     <React.Fragment  key={norma.id}>
                         <Card className={`relative w-full md:max-w-md lg:max-w-lg xl:max-w-lg 2xl:max-w-xl cursor-pointer rounded-lg overflow-hidden transform transition-all duration-300 ${isSport  === norma.id  ?'scale-104 bg-white shadow-blue-200 shadow-lg':' bg-white hover:scale-102 shadow-xl'}`}>
                             <Button className='w-full flex items-center text-start p-2 px-3 cursor-pointer' onClick={()=>handleClickSport(norma.id)} onMouseEnter={() => handleHovered(norma.id)} onMouseLeave={() => handleHovered(norma.id)}>
-                                <div className="relative size-18 ring-4 rounded-full ring-sky-400 ">
+                                <div className="relative size-18">
                                     <Image
-                                        className="bg-unimar rounded-full"
+                                        className="bg-unimar rounded-full ring-4 ring-blue-200/80 "
                                         src={norma.img}
                                         alt="img"
                                         width={100}
@@ -56,7 +56,7 @@ export function Sport(){
                                 </div>
                                 <div className="flex flex-col flex-grow text-black px-6 py-4 space-y-1">
                                     <h3 className="text-lg font-bold line-clamp-1">{norma.sport}</h3>
-                                    <p className=" line-clamp-2 text-gray-600 text-justify text-base">Consultar el reglamento</p>
+                                    <p className=" line-clamp-2 text-gray-600">Consultar el reglamento</p>
                                 </div>
                                 <motion.div className="w-5 m-1 lg:mr-3 -rotate-90"
                                      variants={iconMove}

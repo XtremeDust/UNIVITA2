@@ -4,7 +4,7 @@ import {sectionFs} from "@/types/footerSection";
 
 function licksFooter(){
     return(
-    <div className="lg:grid grid-flow-col col-span-4 gap-5 p-8 ml-7 hidden">
+    <div className="lg:grid grid-flow-col col-span-4 gap-5 p-8 ml-7 hidden text-white">
         {sectionFs.map((section)=>(
             <ul key={section.id} >
                 <a href={section.url} className="font-bold">

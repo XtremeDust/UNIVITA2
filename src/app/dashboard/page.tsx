@@ -1,70 +1,34 @@
-import { Inconsolata, Literata } from "next/font/google";
-import Image from "next/image";
-import { url } from "inspector";
-import { title } from "process";
+'use client'
 import Header from "@/components/common/dashHeader";
 import Aside from "@/components/common/dashSideBar";
 import Footer from "@/components/common/dashFooter";
+import {HomeRender} from "@/components/sections/dashHome";
+import { useState } from "react";
 
-export default function Home() {
+export default function Dasboard() {
+   const [currentView, setCurrentView] = useState(1);
+   
+   const handleChange = (newKey: number) => {
+     setCurrentView(newKey);
+   };
+
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] grid-cols-[250px_1fr] min-h-dvh bg-gray-200">
-      <Header className="col-start-2 bg-unimar w-full h-[3.5rem]"/>
+    <div className="grid  grid-cols-[auto_1fr] min-h-dvh bg-gray-200">
 
-      <Aside className="relative bg-white text-black p-1 overflow-hidden row-span-full h-full "/>
       
-      <main className="p-4 text-black flex flex-col gap-[32px]  items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      <Aside onNavigate={handleChange} CurrentKey={currentView}
+       className="w-64 text-black text-text-light dark:text-text-dark flex flex-col shadow-l relative"
+       />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      
+      <section className="grid grid-rows-[auto_1fr_auto]">
+      <Header className="shadow-sm h-16 bg-unimar w-full flex "/>
 
+        <main className="p-6 md:p-8 bg-gray-100 md:col-auto text-black ">
+          <HomeRender current={currentView}/>
+        </main>
 
-      <Footer className="col-start-2 text-black p-2 w-full text-center bg-gray-300"/>
+      <Footer className=" bg-white p-3 text-sm text-gray-500 text-center border-t border-gray-200"/>
+      </section>
 
     </div>
   );
