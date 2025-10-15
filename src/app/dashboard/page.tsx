@@ -21,7 +21,7 @@ export default function Dasboard() {
        />
 
       <section className="grid grid-rows-[auto_1fr_auto]">
-      <Header className="shadow-sm h-16 bg-unimar w-full flex "/>
+      <Header CurrentKey={currentView} className="shadow-sm h-16 bg-unimar w-full flex "/>
 
         <main className="p-6 md:p-8 bg-gray-100 md:col-auto text-black ">
           <HomeRender current={currentView}/>

@@ -5,11 +5,27 @@ import { InputGroup } from "../ui/InputGroup";
 import { useEffect, useState, useRef } from "react";
 import {sports} from "@/types/sports"
 import Select from "../ui/Select";
-import { label } from "framer-motion/client";
+import  Table  from '../ui/Table';
+import { TableHead, TableHeaderCell } from "../ui/TableHead";
+import { TableBody, TableCell, TableRow } from "../ui/TableBody";
+
 
 export interface currentProps{
     current:number;
 }
+
+const titlesdeporte=[
+    { id: 1, titulo: "Deporte" },
+    { id: 2, titulo: "Modo de Juego" },
+    { id: 3, titulo: "Inscritos"},
+    { id: 4, titulo: "Acciones"},
+]
+
+const tabladeporte=[
+    { id: 1, nombre: "Fútbol", inscritos: 120, tipo: "Individual" },
+    { id: 2, nombre: "Basquet", inscritos: 80, tipo: "En Grupo" },
+    { id: 3, nombre: "Voleibol", inscritos: 50, tipo: "En Duplas" },
+]
 
 export const HomeRender=({current}:currentProps)=>{
 
@@ -29,6 +45,14 @@ export const HomeRender=({current}:currentProps)=>{
         setIsOpenE(false);
     };
 
+    const [isEstateE, setSelectEsE] = useState('Todos'); 
+    const [isOpenEsE, setIsOpenEsE] = useState(false);
+
+        const handleSelectEsE = (id: number, label:string) => {
+        setSelectEsE(label);
+        setIsOpenEsE(false);
+    };
+
     const selectTipoJ=[
         {id:1, label:'Individual'},
         {id:2, label:'En Duplas'},
@@ -40,6 +64,12 @@ export const HomeRender=({current}:currentProps)=>{
         {id:2,label:'Pausado'},
     ]
 
+    const estateE=[
+        {id:1,label:'Activo'},
+        {id:2,label:'Próximo'},
+        {id:3,label:'Pasado'},
+    ]
+
     const filteredEstate = estate
     .filter(item => item.label !== isEstate)
     .map(item => ({
@@ -47,11 +77,13 @@ export const HomeRender=({current}:currentProps)=>{
         label: item.label,
     }));
 
-    const dropdownEstate = [
-    ...(isEstate !== 'Todos' ? [{ id: 0, label: 'Todos' }] : []),
-    ...filteredEstate,
-    ];
-
+    const filteredEstateE = estateE
+    .filter(item => item.label !== isEstateE)
+    .map(item => ({
+        id: item.id,
+        label: item.label,
+    }));
+    
     const filteredTipo = selectTipoJ
     .filter(item => item.label !== isSelectJ)
     .map(item => ({
@@ -60,17 +92,26 @@ export const HomeRender=({current}:currentProps)=>{
     }));
 
     const dropdownOptions= [
-    
-    ...(isSelectJ!== 'Todos' ? [{id:0, label: 'Todos'}]:[]),
-    ...filteredTipo,
-];
+        ...(isSelectJ!== 'Todos' ? [{id:0, label: 'Todos'}]:[]),
+        ...filteredTipo,
+        
+    ];
+
+    const dropdownEstateE = [
+    ...(isEstateE !== 'Todos' ? [{ id: 0, label: 'Todos' }] : []),
+    ...filteredEstateE,
+    ];
+
+    const dropdownEstate = [
+    ...(isEstate !== 'Todos' ? [{ id: 0, label: 'Todos' }] : []),
+    ...filteredEstate,
+    ];
+
 
     switch (current) {
         case 1:
             return(
                     <div className="Case1 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Home</h1>
-                            
                             <section>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
                                     <div className="bg-white p-5 rounded-lg shadow flex flex-col justify-between h-32">
@@ -197,34 +238,34 @@ export const HomeRender=({current}:currentProps)=>{
         case 2:
             return(
                     <div className="Case2 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Normativas, reglamentos y guias</h1>
+                            <section className="grid grid-cols-1  space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
-                            <section className="grid grid-cols-1 lg:grid-cols-3 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
+                                <div className="bg-white p-6 rounded-lg shadow ">
+                                    <h3 className="text-2xl font-bold mb-6">Reglas Generales</h3>
+                                    
+                                    <table className="table-auto md:table-fixed w-full overflow-hidden rounded-md ">
 
-                                <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <h3 className="text-xl font-bold mb-6">Reglas Generales</h3>
-                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
-                                            <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
+                                        <thead className="">
+                                            <tr className="bg-gray-200 border-b text-gray-600 font-bold">
+                                            <th className="py-2 px-4 text-left ">Documento</th>
+                                            <th className="py-2 px-4 text-left ">Versión</th>
+                                            <th className="py-2 px-4 text-left ">Fecha de Publicación</th>
+                                            <th className="py-2 px-4 text-left ">Acciones</th>
                                             </tr>
                                         </thead>
                                         
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
+                                        <tbody className="rounded-lg">
                                             
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A1</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
+                                            <tr className="border-b border-gray-300">
+                                            <td className="py-2 px-4 font-semibold">Dato A1</td>
+                                            <td className="py-2 px-4">Dato A2</td>
+                                            <td className="py-2 px-4">Dato A3</td>
+                                            <td className="py-2 px-4">Dato A4</td>
                                             </tr>
                                             
                                             
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Dato B1</td>
+                                            <tr className="bg-gray-100 border-gray-300 border-b">
+                                            <td className="py-2 px-4 font-semibold">Dato B1</td>
                                             <td className="py-2 px-4">Dato B2</td>
                                             <td className="py-2 px-4">Dato B3</td>
                                             <td className="py-2 px-4">Dato B4</td>
@@ -232,30 +273,32 @@ export const HomeRender=({current}:currentProps)=>{
                                         </tbody>                                    
                                     </table> 
                                 </div>
-                                <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <h3 className="text-xl font-bold mb-6">Reglas por deporte</h3>
-                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
-                                            <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
+
+                                <div className="bg-white p-6 rounded-lg shadow">
+                                    <h3 className="text-2xl font-bold mb-6">Reglas por deporte</h3>
+
+                                     <table className="table-auto md:table-fixed w-full overflow-hidden rounded-md ">
+                                        <thead className="">
+                                            <tr className="bg-gray-200 border-b text-gray-600 font-bold">
+                                            <th className="py-2 px-4 border-b text-left">Columna 1</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 2</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 3</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 4</th>
                                             </tr>
                                         </thead>
                                         
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
+                                        <tbody className="">
                                             
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A1</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
+                                            <tr className="border-b border-gray-300">
+                                            <td className="py-2 px-4 font-semibold">Dato A1</td>
+                                            <td className="py-2 px-4">Dato A2</td>
+                                            <td className="py-2 px-4">Dato A3</td>
+                                            <td className="py-2 px-4">Dato A4</td>
                                             </tr>
                                             
                                             
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Dato B1</td>
+                                            <tr className="bg-gray-100 border-gray-300 border-b">
+                                            <td className="py-2 px-4 font-semibold">Dato B1</td>
                                             <td className="py-2 px-4">Dato B2</td>
                                             <td className="py-2 px-4">Dato B3</td>
                                             <td className="py-2 px-4">Dato B4</td>
@@ -263,30 +306,31 @@ export const HomeRender=({current}:currentProps)=>{
                                         </tbody>                                    
                                     </table> 
                                 </div>
-                                <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <h3 className="text-xl font-bold mb-6">Reglas por evento</h3>
-                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
-                                            <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
+
+                                <div className="bg-white p-6 rounded-lg shadow ">
+                                    <h3 className="text-2xl font-bold mb-6">Reglas por evento</h3>
+                                     <table className="table-auto md:table-fixed w-full overflow-hidden rounded-md ">
+                                        <thead className="">
+                                            <tr className="bg-gray-200 border-b text-gray-600 font-bold">
+                                            <th className="py-2 px-4 border-b text-left">Columna 1</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 2</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 3</th>
+                                            <th className="py-2 px-4 border-b text-left">Columna 4</th>
                                             </tr>
                                         </thead>
                                         
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
+                                        <tbody className="">
                                             
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A1</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
+                                            <tr className="border-b border-gray-300">
+                                            <td className="py-2 px-4 font-semibold">Dato A1</td>
+                                            <td className="py-2 px-4">Dato A2</td>
+                                            <td className="py-2 px-4">Dato A3</td>
+                                            <td className="py-2 px-4">Dato A4</td>
                                             </tr>
                                             
                                             
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Dato B1</td>
+                                            <tr className="bg-gray-100 border-gray-300 border-b">
+                                            <td className="py-2 px-4 font-semibold">Dato B1</td>
                                             <td className="py-2 px-4">Dato B2</td>
                                             <td className="py-2 px-4">Dato B3</td>
                                             <td className="py-2 px-4">Dato B4</td>
@@ -305,12 +349,17 @@ export const HomeRender=({current}:currentProps)=>{
         case 3:
             return(
                     <div className="Case2 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Inscripción</h1>
 
-                            <section className="grid grid-cols-1 lg:grid-cols-3 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
+                            <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
                                 <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <h3 className="text-xl font-semibold mb-6">Usuarios Inscritos</h3>
+                                    <div className="flex justify-between">
+                                        <h3 className="text-2xl font-bold mb-6">Equipos Inscritos</h3>
+                                        <Button className="bg-unimar hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                        + Añadir Equipo
+                                        </Button>
+                                    </div>
+
                                     <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
                                         <thead className="text-white bg-unimar">
                                             <tr>
@@ -343,19 +392,80 @@ export const HomeRender=({current}:currentProps)=>{
 
                             </section>
 
+                            <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
+
+                                <div className="bg-white p-6 rounded-lg shadow col-span-2">
+                                    <h3 className="text-2xl font-bold mb-6">Usuarios Inscritos</h3>
+                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
+                                        <thead className="text-white bg-unimar">
+                                            <tr>
+                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
+                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
+                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
+                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
+                                            
+                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
+                                            <td className="py-2 px-4 border-b border-gray-300">Dato A1</td>
+                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
+                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
+                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
+                                            </tr>
+                                            
+                                            
+                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
+                                            <td className="py-2 px-4">Dato B1</td>
+                                            <td className="py-2 px-4">Dato B2</td>
+                                            <td className="py-2 px-4">Dato B3</td>
+                                            <td className="py-2 px-4">Dato B4</td>
+                                            </tr>
+                                        </tbody>                                    
+                                    </table>                                
+                                </div>
+
+                            </section>
+
+
                     </div>  
             );
         case 4:
             return(
                     <div className="Case2 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Eventos y Actividades</h1>
+                            <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
-                            <section className="grid grid-cols-1 lg:grid-cols-3 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
-
-                                
 
                                 <div className="bg-white p-6 rounded-lg shadow">
-                                   <h3 className="text-xl font-semibold mb-6">Eventos</h3>
+                                   <div className="flex justify-between">
+                                        <h3 className="text-2xl font-bold mb-6">Eventos</h3>
+                                        <Button className="bg-unimar hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                        + Anadir Evento
+                                        </Button>
+                                    </div>
+
+                                    <div className="flex items-center mb-3 gap-3">
+
+                                        <InputGroup label="Estado" For="select" className="w-[25%]">
+                                           <Select
+                                                options={dropdownEstateE}
+                                                currentValue={isEstateE}
+                                                isOpen={isOpenEsE}
+                                                setOpen={setIsOpenEsE} 
+                                                onSelect={handleSelectEsE}
+                                                placeholder="Seleccione el estado"
+                                           />
+                                           {/*
+                                           <p className="mt-4 text-xs text-gray-600">
+                                                Deporte actual: {isSelectJ || 'Ninguno'}
+                                            </p>
+                                            */}
+
+                                        </InputGroup>
+                                        
+                                    </div>
+                                  
                                     <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
                                         <thead className="text-white bg-unimar">
                                             <tr>
@@ -395,18 +505,20 @@ export const HomeRender=({current}:currentProps)=>{
         case 5:
             return(
                     <div className="Case2 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Ofertas</h1>
-
-                            <section className="grid grid-cols-1 lg:grid-cols-3 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
+                            <section className="grid grid-cols-1  space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
                                 <div className="bg-white p-6 rounded-lg shadow col-span-2 space-y-1">
                                    
-                                <h3 className="text-xl font-semibold mb-6">Ofertas deportivas</h3>
-                                    
+                                     <div className="flex justify-between">
+                                        <h3 className="text-2xl font-bold mb-6">Ofertas deportivas</h3>
+                                        <Button className="bg-unimar hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                        + Anadir Oferta
+                                        </Button>
+                                    </div>
 
-                                    <div className="flex justify-between items-center mb-3">
+                                    <div className="flex items-center mb-3 gap-3">
 
-                                        <InputGroup label="Modo de juego" For="select">
+                                        <InputGroup label="Modo de juego" For="select" className="w-[25%]">
                                            <Select
                                                 options={dropdownOptions}
                                                 currentValue={isSelectJ}
@@ -422,7 +534,7 @@ export const HomeRender=({current}:currentProps)=>{
                                            */}
                                         </InputGroup>
 
-                                        <InputGroup label="Estado" For="select">
+                                        <InputGroup label="Estado" For="select" className="w-[25%]">
                                            <Select
                                                 options={dropdownEstate}
                                                 currentValue={isEstate}
@@ -438,60 +550,33 @@ export const HomeRender=({current}:currentProps)=>{
                                             */}
 
                                         </InputGroup>
-                                        <Button className="bg-unimar hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
-                                        + Anadir Oferta
-                                        </Button>
+                                        
                                     </div>
                                     
-                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
-                                            <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
-                                            </tr>
-                                        </thead>
-                                        
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
-                                            
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Fútbol</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
-                                            </tr>
-                                            
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Basquet</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
+                                   <Table className="w-full">
+                                        <TableHead className="text-gray-700  bg-gray-300">
+                                            {titlesdeporte.map((titulos)=>(
+                                                <TableHeaderCell key={titulos.id} className="first:rounded-l-lg last:rounded-r-lg py-3 px-4 justify-end font-semibold ">
+                                                    {titulos.titulo}
+                                                </TableHeaderCell>
+                                            ))}
+                                        </TableHead>
 
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Voleibol</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Pickbol</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Tenis de mesa</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                        </tbody>                                    
-                                    </table>                                     
+                                        <TableBody className="bg-white divide-y divide-gray-200">
+                                            {tabladeporte.map((data)=>(
+                                                <TableRow key={data.id} className="hover:bg-gray-100 text-center">
+                                                    <TableCell className="font-bold">{data.nombre}</TableCell>
+                                                    <TableCell>{data.tipo}</TableCell>
+                                                    <TableCell>{data.inscritos}</TableCell>
+                                                    <TableCell className="space-x-2 flex justify-end text-white">
+                                                        <Button className="btn bg-unimar rounded-lg">Ver</Button>
+                                                        <Button className="btn bg-gray-400 rounded-lg">Editar</Button>
+                                                        <Button className="btn bg-red-400 rounded-lg">Eliminar</Button>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>                                                
 
                                 </div>
 
@@ -503,55 +588,30 @@ export const HomeRender=({current}:currentProps)=>{
                                         </Button>
                                     </div>
                                     
-                                    <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
-                                            <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
-                                            </tr>
-                                        </thead>
-                                        
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
-                                            
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Fútbol</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
-                                            </tr>
-                                            
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Basquet</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
+                                   <Table className="w-full">
+                                        <TableHead className="text-white bg-unimar">
+                                            {titlesdeporte.map((titulos)=>(
+                                                <TableHeaderCell key={titulos.id} className="first:rounded-l-lg last:rounded-r-lg py-3 px-4 border-b justify-end font-semibold ">
+                                                    {titulos.titulo}
+                                                </TableHeaderCell>
+                                            ))}
+                                        </TableHead>
 
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Voleibol</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Pickbol</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Tenis de mesa</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
-                                            </tr>
-
-                                        </tbody>                                    
-                                    </table>                                     
+                                        <TableBody className="bg-white divide-y divide-gray-200">
+                                            {tabladeporte.map((data)=>(
+                                                <TableRow key={data.id} className="hover:bg-gray-100 text-center">
+                                                    <TableCell className="font-bold">{data.nombre}</TableCell>
+                                                    <TableCell>{data.tipo}</TableCell>
+                                                    <TableCell>{data.inscritos}</TableCell>
+                                                    <TableCell className="space-x-2 flex justify-end text-white">
+                                                        <Button className="btn bg-unimar rounded-lg">Ver</Button>
+                                                        <Button className="btn bg-gray-400 rounded-lg">Editar</Button>
+                                                        <Button className="btn bg-red-400 rounded-lg">Eliminar</Button>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>                                    
 
                                 </div>
 
@@ -562,46 +622,39 @@ export const HomeRender=({current}:currentProps)=>{
         case 6:
             return(
                     <div className="Case2 overflow-y-auto">
-                            <h1 className="text-2xl font-semibold mb-6">Comentarios</h1>
+                            <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
-                            <section className="grid grid-cols-1 lg:grid-cols-3 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
-
-                                <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                <h3 className="text-xl font-semibold mb-6">Deportes populares por evento</h3>
-                                
-                                </div>
-
-                                <div className="bg-white p-6 rounded-lg shadow">
-                                    <h2 className="text-xl font-bold mb-4">Comentarios de usuario</h2>
-                                                                        <table className="table-auto md:table-fixed w-full rounded-lg overflow-hidden">                                        
-                                        <thead className="text-white bg-unimar">
+                                <div className="bg-white p-6 rounded-xl shadow ">
+                                 <h2 className="text-2xl font-semibold mb-4 text-gray-800">Comentarios de usuario</h2>
+                                    <table className="table-auto md:table-fixed w-full">                                        
+                                        <thead className="text-gray-500 bg-gray-200/75">
                                             <tr>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 1</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 2</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 3</th>
-                                            <th className="py-2 px-4 border-b text-left font-semibold ">Columna 4</th>
+                                            <th className="py-3 px-4 text-left font-bold  first:rounded-l-lg">Usuario</th>
+                                            <th className="py-3 px-4 text-left font-bold ">Comentario</th>
+                                            <th className="py-3 px-4 text-left font-bold ">Fecha</th>
+                                            <th className="py-3 px-4 text-left font-bold last:rounded-r-lg">Accion</th>
                                             </tr>
                                         </thead>
                                         
-                                        <tbody className="odd:bg-unimar  even:bg-unimar/15">
+                                        <tbody className="">
                                             
-                                            <tr className="hover:bg-gray-100 odd:bg-unimar/0">
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A1</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A2</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A3</td>
-                                            <td className="py-2 px-4 border-b border-gray-300">Dato A4</td>
+                                            <tr className="border-b border-gray-300">
+                                            <td className="py-3 px-4 font-semibold">Dato A1</td>
+                                            <td className="py-3 px-4 ">Dato A2</td>
+                                            <td className="py-3 px-4 ">Dato A3</td>
+                                            <td className="py-3 px-4 ">Dato A4</td>
                                             </tr>
                                             
                                             
-                                            <tr className="hover:bg-gray-100 even:bg-gray-100">
-                                            <td className="py-2 px-4">Dato B1</td>
-                                            <td className="py-2 px-4">Dato B2</td>
-                                            <td className="py-2 px-4">Dato B3</td>
-                                            <td className="py-2 px-4">Dato B4</td>
+                                            <tr className="border-b border-gray-300">
+                                            <td className="py-3 px-4 font-semibold">Dato B1</td>
+                                            <td className="py-3 px-4">Dato B2</td>
+                                            <td className="py-3 px-4">Dato B3</td>
+                                            <td className="py-3 px-4">Dato B4</td>
                                             </tr>
                                         </tbody>                                    
                                     </table> 
-
+                                    <h1 className="mt-3 text-gray-500">Resultados</h1>
                                 </div>
 
                             </section>

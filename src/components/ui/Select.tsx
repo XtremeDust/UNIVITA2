@@ -1,8 +1,7 @@
 'use client'
 import React, { HTMLAttributes, useRef } from "react";
-import Button from "./Button";
+import {Button, Input} from "@/types/ui_components"
 import Image from "next/image";
-import { Input } from "./Input";
 
 export interface DropdownOption{
     id:number;
@@ -41,9 +40,9 @@ export default function Select({options,currentValue,isOpen,setOpen,onSelect,pla
                 value={Value} 
                 placeholder={placeholder}
             />
-                <Button type="button" className="cursor-pointer absolute right-1 md:right-1 lg:right-4 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2">
+                <Button type="button" className="cursor-pointer absolute right-1 md:right-1  lg:right-4 top-1/2 flex justify-center -translate-y-1/2 -translate-x-1/2 ">
                     <Image
-                    className={`size-[1rem] transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-360'}`}
+                    className={`size-[1rem] transition-transform duration-300 ease-in-out ${isOpen ? ' rotate-180' : 'rotate-360'}`}
                     src={'https://res.cloudinary.com/dnfvfft3w/image/upload/v1759101273/flecha-hacia-abajo-para-navegar_zixe1b.png'}
                     alt="desplegar"
                     width={100}

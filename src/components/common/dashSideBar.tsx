@@ -5,12 +5,12 @@ import {Button} from '@/types/ui_components';
 import Navigate from '@/components/ui/Router'
 
 type Navigate = (newKey: number) => void;
-interface AsideProps extends HTMLAttributes<HTMLDivElement>{
+export interface AsideProps extends HTMLAttributes<HTMLDivElement>{
     onNavigate:Navigate,
     CurrentKey:number
 };
 
-const menu=[
+export const menu=[
     {id:1, section:'Home', src:'', img:'/hogar.png'},
     {id:2, section:'Normativas', src:'/', img:'/martillo-de-subasta.png'},
     {id:3, section:'Inscripciones', src:'/', img:'/contrato (1).png'},
@@ -32,9 +32,9 @@ export default function Aside({onNavigate, CurrentKey, ...props}:AsideProps){
                     height={500}
                     />
                 </div>
-                <div className=' mt-0.5 px-1'>
+                <div className=' mt-0.5 px-1 '>
                     {menu.map((aside)=>(
-                        <div  key={aside.id} className={`mt-0.5 p-3 flex items-center gap-3 hover:bg-unimar/15 cursor-pointer rounded-lg ${CurrentKey===aside.id?'bg-unimar/15':''}`} onClick={()=>onNavigate(aside.id)} >
+                        <div  key={aside.id} className={`mt-0.5 p-3 flex items-center gap-3 hover:bg-unimar/15 cursor-pointer rounded-lg ${CurrentKey===aside.id?'bg-unimar/15 font-medium text-unimar':' grayscale-95'}`} onClick={()=>onNavigate(aside.id)} >
                                 <Image
                                     className='size-8'
                                     src={aside.img}
