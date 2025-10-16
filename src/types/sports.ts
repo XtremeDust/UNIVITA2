@@ -13,9 +13,16 @@ export interface categoria{
 }
 
 export const pasos=[
-    {id:1,paso:"Selecciona tu Evento", content:"Elige el deporte que te apaciona y la categoria en la que quieres participar.", img:"https://res.cloudinary.com/dnfvfft3w/image/upload/v1759086427/seleccione_1_r0ezsw.png"},
+    {id:1,paso:"Selecciona tu Evento", content:"Elige el deporte y la categoría que te apasionan para participar.", img:"https://res.cloudinary.com/dnfvfft3w/image/upload/v1759086427/seleccione_1_r0ezsw.png"},
     {id:2,paso:"Completa tus Datos", content:"Llena el formulario con la información necesaria para el registro.", img:"https://res.cloudinary.com/dnfvfft3w/image/upload/v1759086426/formularios-de-google_x5vgjo.png"},
-    {id:3,paso:"Envia y ¡Listo!", content:"Realiza el envio, espera confirmacion y prepárate para competir", img:"https://res.cloudinary.com/dnfvfft3w/image/upload/v1759086427/seleccione_ftz82y.png"},
+    {id:3,paso:"¡Envia y a Competir!", content:"Envía tu registro, espera confirmacion y prepárate para competir", img:"https://res.cloudinary.com/dnfvfft3w/image/upload/v1759086427/seleccione_ftz82y.png"},
+]
+
+export const beneficios=[
+    {id:1, titulo:'Asegura tu lugar exclusivo', content:'Los cupos están reservados para quienes actúan con visión. Al registrarte con antelación, garantizas tu participación y el acceso a esta oportunidad única.', img:'/vip.png', style:'blue'},
+    {id:2, titulo:'Facilita una experiencia superior ', content:'Tu registro temprano nos ayuda a planificar un evento de primera clase, diseñado para tu máximo disfrute y beneficio.', img:'/estructura-jerarquica.png', style:'green'},
+    {id:3, titulo:'Recibe información clave antes que nadie', content:'Serás el primero en enterarte de todos los detalles y actualizaciones importantes, asegurando que estés siempre un paso adelante.', img:'/noticias.png', style:'violet'},
+    {id:4, titulo:'Prepárate con total tranquilidad ', content:'Concéntrate en tu entrenamiento con la certeza de que todo está listo para ti, sin la presión de los últimos minutos.', img:'/preparate.png', style:'orange'},
 ]
 
 export const catPredt=[

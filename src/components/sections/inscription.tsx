@@ -3,7 +3,7 @@ import {Button, Modal,ContainModal,HeaderModal,FooterModal, Card, Input, InputGr
 import Navigation from "@/components/common/navigation"
 import { useEffect, useRef, useState } from "react";
 import Sports from "@/components/common/sportsCard"
-import {sports, catPredt, pasos} from "@/types/sports"
+import {sports, catPredt, pasos, beneficios} from "@/types/sports"
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import Banner from "@/components/ui/Banner";
@@ -180,11 +180,11 @@ export function ButtonInscription(){
             <section className=" space-y-10 bg-gray-100">
                 <section className="flex flex-col p-3 space-y-12 text-black place-content-center place-items-center text-center m-0">
                     <div className="mb-5 place-content-center place-items-center">
-                        <h3 className='title text-gray-800'>Tu Enfoque: Más Acción, Cero Fricción</h3>
-                        <p className="text-sm md:text-lg w-sm md:w-md xl:w-lg 2xl:w-2xl text-gray-600 text-center">Nuestro proceso de registro está diseñado para ti: libera tu tiempo de tareas administrativas para que puedas dedicarte 100% a la victoria: competir y entrenar.</p>
+                        <h3 className='title text-gray-800'>Tu Enfoque: Más Acción, Más Libertad</h3>
+                        <p className="text-sm md:text-lg w-sm md:w-md xl:w-lg 2xl:w-2xl text-gray-600 text-center">Nuestro proceso de registro te libera de tareas para que puedas dedicarte por completo a la victoria: competir y entrenar.</p>
                     </div>
                      
-                     <div className=" flex flex-col lg:flex-row w-full justify-evenly gap-3">
+                     <div className=" flex flex-wrap w-full justify-evenly gap-3">
                         {pasos.map((en)=>(
                             <Card key={en.id} 
                                 className=" group block place-items-center place-content-center text-center gap-3 m-0">
@@ -207,7 +207,7 @@ export function ButtonInscription(){
                                         />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-bold text-gray-900">{en.id}.{en.paso}</h3>
+                                        <h3 className="text-2xl font-bold text-gray-900">{en.id}. {en.paso}</h3>
                                         <p className="text-sm md:text-lg text-gray-600 w-sm">{en.content}</p>
                                     </div>
                                 </motion.div>
@@ -215,6 +215,48 @@ export function ButtonInscription(){
                         ))}
                      </div>
                 </section>
+
+                <section className="flex flex-col p-3 space-y-12 text-black place-content-center place-items-center text-center m-0">
+                    <div className="mb-5 place-content-center place-items-center">
+                        <h3 className='title text-gray-800'>¡Inscríbete a Tiempo y Asegura tu Éxito!</h3>
+                    </div>
+                     
+                     <div className=" flex flex-col w-full">
+                        {beneficios.map((en)=>(
+                            <Card key={en.id} 
+                                className=" group text-center m-0">
+                                <motion.div
+                                    className=" flex place-content-center"
+                                    animate={{scale:0.9}}
+                                    whileHover={{scale:0.9}}
+                                    transition={{
+                                        duration:0.3,
+                                        ease:"easeInOut",
+                                    }}
+                                >
+                                    <div className="flex gap-6 w-full md:w-[90%] relative lg:space-y-5">
+                                        <div className={` z-20 transition-all duration-300 ease-in-out ring-${en.style}-200 ring-6 group-hover:ring-10 p-4   size-[3rem] lg:size-[5rem] rounded-full overflow-hidden bg-${en.style}-500`}>
+                                            <Image
+                                                className="  scale-225 lg:scale-90 "
+                                                src={en.img}
+                                                alt={en.titulo}
+                                                width={200}
+                                                height={200}
+                                            />
+                                        </div>
+                                        <div className="text-start p-6 shadow-lg w-full bg-white rounded-2xl flex flex-col gap-3 z-20">
+                                            <h3 className="text-2xl font-bold text-gray-900">{en.titulo}</h3>
+                                            <p className=" text-gray-600 ">{en.content}</p>
+                                        </div>
+                                        <div className={`absolute bg-${en.style}-400 w-1 h-[80%] lg:h-[100%] left-5 lg:left-8.5   z-10`}/>
+                                    </div>
+                                </motion.div>
+                            </Card>
+                        ))}
+                     </div>
+                     
+                </section>
+                
                 <Navigation/>
             </section>
 
