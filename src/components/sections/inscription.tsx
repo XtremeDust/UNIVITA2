@@ -234,8 +234,8 @@ export function ButtonInscription(){
                                         ease:"easeInOut",
                                     }}
                                 >
-                                    <div className="flex gap-6 w-full md:w-[90%] relative lg:space-y-5">
-                                        <div className={` z-20 transition-all duration-300 ease-in-out ring-${en.style}-200 ring-6 group-hover:ring-10 p-4   size-[3rem] lg:size-[5rem] rounded-full overflow-hidden bg-${en.style}-500`}>
+                                    <div className="flex md:gap-6 gap-3 w-full md:w-[90%] relative lg:space-y-5">
+                                        <div className={` z-20 transition-all duration-300 ease-in-out ${en.style} ring-6 group-hover:ring-10 p-4   size-[3rem] lg:size-[5rem] rounded-full overflow-hidden bg-${en.style}-500`}>
                                             <Image
                                                 className="  scale-225 lg:scale-90 "
                                                 src={en.img}
@@ -245,10 +245,10 @@ export function ButtonInscription(){
                                             />
                                         </div>
                                         <div className="text-start p-6 shadow-lg w-full bg-white rounded-2xl flex flex-col gap-3 z-20">
-                                            <h3 className="text-2xl font-bold text-gray-900">{en.titulo}</h3>
+                                            <h3 className="text-xl font-bold text-gray-900">{en.titulo}</h3>
                                             <p className=" text-gray-600 ">{en.content}</p>
                                         </div>
-                                        <div className={`absolute bg-${en.style}-400 w-1 h-[80%] lg:h-[100%] left-5 lg:left-8.5   z-10`}/>
+                                        <div className={`absolute ${en.style} w-1 h-[80%] lg:h-[100%] left-5 lg:left-8.5   z-10`}/>
                                     </div>
                                 </motion.div>
                             </Card>

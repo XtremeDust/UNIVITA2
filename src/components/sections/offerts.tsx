@@ -110,6 +110,7 @@ const deport = [
         tipo: 'individual o en duplas'
     },
 ];
+
 export function offers(){
 
     const [isModal, setModal] = useState<number|null>(null);

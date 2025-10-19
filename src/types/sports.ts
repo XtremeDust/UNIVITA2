@@ -19,10 +19,10 @@ export const pasos=[
 ]
 
 export const beneficios=[
-    {id:1, titulo:'Asegura tu lugar exclusivo', content:'Los cupos están reservados para quienes actúan con visión. Al registrarte con antelación, garantizas tu participación y el acceso a esta oportunidad única.', img:'/vip.png', style:'blue'},
-    {id:2, titulo:'Facilita una experiencia superior ', content:'Tu registro temprano nos ayuda a planificar un evento de primera clase, diseñado para tu máximo disfrute y beneficio.', img:'/estructura-jerarquica.png', style:'green'},
-    {id:3, titulo:'Recibe información clave antes que nadie', content:'Serás el primero en enterarte de todos los detalles y actualizaciones importantes, asegurando que estés siempre un paso adelante.', img:'/noticias.png', style:'violet'},
-    {id:4, titulo:'Prepárate con total tranquilidad ', content:'Concéntrate en tu entrenamiento con la certeza de que todo está listo para ti, sin la presión de los últimos minutos.', img:'/preparate.png', style:'orange'},
+    {id:1, titulo:'Asegura tu lugar exclusivo', content:'Los cupos están reservados para quienes actúan con visión. Al registrarte con antelación, garantizas tu participación y el acceso a esta oportunidad única.', img:'/vip.png', style:'bg-blue-500 ring-blue-200'},
+    {id:2, titulo:'Facilita una experiencia superior ', content:'Tu registro temprano nos ayuda a planificar un evento de primera clase, diseñado para tu máximo disfrute y beneficio.', img:'/estructura-jerarquica.png', style:'bg-green-500 ring-green-200'},
+    {id:3, titulo:'Recibe información clave antes que nadie', content:'Serás el primero en enterarte de todos los detalles y actualizaciones importantes, asegurando que estés siempre un paso adelante.', img:'/noticias.png', style:'bg-violet-500 ring-violet-200'},
+    {id:4, titulo:'Prepárate con total tranquilidad ', content:'Concéntrate en tu entrenamiento con la certeza de que todo está listo para ti, sin la presión de los últimos minutos.', img:'/preparate.png', style:'bg-orange-500 ring-orange-200'},
 ]
 
 export const catPredt=[
