@@ -1,7 +1,7 @@
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import Image from "next/image";
 import Avatar from '../ui/Avatar';
-import {menu, AsideProps} from "@/components/common/dashSideBar"
+import {menu, Submenu, AsideProps} from "@/components/common/dashSideBar"
 import { view } from 'framer-motion/client';
 
 
@@ -11,16 +11,28 @@ interface HeaderProps extends HTMLAttributes<HTMLDivElement>{
 
 export default function Header({CurrentKey,...props}:HeaderProps){
 
-  const views = menu.filter(items=> items.id===CurrentKey)
+  
+
+  let activeItem: Submenu | undefined = menu.find(item => item.id === CurrentKey);
+
+  if (!activeItem) {
+      menu.map(item => {
+          if (item.submenu) {
+              const subItem = item.submenu.find(sub => sub.id === CurrentKey);
+              if (subItem) {
+                  activeItem = subItem;
+              }
+          }
+      });
+  }
 
     return(
         <div {...props}>
 
           <div className='flex flex-row place-items-center justify-between py-4 px-6 w-full'>
-               {views.map((item)=>(
-                  <h1 key={item.id} className={`text-3xl font-bold`}>{item.section}</h1>
-                ))}
-             
+                {activeItem?.id &&(
+                    <h1 className={`text-3xl font-bold`}>{activeItem.section}</h1>
+                  )}
 
             <section className='flex  flex-row items-center gap-4'>
               <div className='size-6'>

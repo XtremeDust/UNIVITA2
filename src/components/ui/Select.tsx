@@ -16,12 +16,13 @@ export interface SelectProps {
     setOpen: (isOpen: boolean) => void; 
     onSelect: ( id: number, label: string) => void; 
     placeholder: string;
+    className?:string;
 }
 
 
 
 
-export default function Select({options,currentValue,isOpen,setOpen,onSelect,placeholder,...props}: SelectProps){
+export default function Select({options,currentValue,className,isOpen,setOpen,onSelect,placeholder,...props}: SelectProps){
 
   const menuOut = useRef<HTMLDivElement>(null); 
 
@@ -34,7 +35,7 @@ export default function Select({options,currentValue,isOpen,setOpen,onSelect,pla
 
             <Input 
                 type='text'id={'custom-select'}
-                className="cursor-pointer input w-full pl-4 pr-3 py-3 placeholder:text-black border border-gray-300  input" 
+                className={`${className}`} 
                 required 
                 readOnly 
                 value={Value} 
