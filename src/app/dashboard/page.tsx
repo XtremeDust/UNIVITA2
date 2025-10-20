@@ -1,6 +1,7 @@
 'use client'
 import Header from "@/components/common/dashHeader";
 import Aside from "@/components/common/dashSideBar";
+import AsideMobile from "@/components/common/dashSideBarMobile";
 import Footer from "@/components/common/dashFooter";
 import {HomeRender} from "@/components/sections/dashHome";
 import { useState } from "react";
@@ -13,12 +14,18 @@ export default function Dasboard() {
    };
 
   return (
-    <div className="grid  grid-cols-[auto_1fr] min-h-dvh bg-gray-200">
+    <div className="grid  lg:grid-cols-[auto_1fr] min-h-dvh bg-gray-200">
 
       
       <Aside onNavigate={handleChange} CurrentKey={currentView}
-       className="w-64 text-black text-text-light dark:text-text-dark flex flex-col shadow-l relative"
+       className="w-64 text-black text-text-light dark:text-text-dark  flex-col shadow-l relative hidden lg:flex"
        />
+
+       <nav className="fixed bottom-0 left-0 right-0 h-16 bg-white shadow-2xl z-40 lg:hidden">
+                <AsideMobile onNavigate={handleChange} CurrentKey={currentView}
+                className="w-64 text-black text-text-light dark:text-text-dark  flex-col shadow-l relative hidden lg:flex"
+                />
+            </nav>
 
       <section className="grid grid-rows-[auto_1fr_auto]">
       <Header CurrentKey={currentView} className="shadow-sm h-16 bg-unimar w-full flex "/>

@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import Image from "next/image";
 import Avatar from '../ui/Avatar';
-import {menu, Submenu, AsideProps} from "@/components/common/dashSideBar"
+
+import { menu, Submenu } from '@/types/dashbord/menu'; 
 import { view } from 'framer-motion/client';
 
 

@@ -410,7 +410,6 @@ export const HomeRender=({current}:currentProps)=>{
     ...filteredEstate,
     ];
 
-
     switch (current) {
         case 1:
             return(
@@ -626,7 +625,7 @@ export const HomeRender=({current}:currentProps)=>{
                                 <div className="bg-white p-6 rounded-lg shadow">
                                     <div className="flex justify-between">
                                         <h3 className="text-2xl font-bold mb-6">Reglas por deporte</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -705,7 +704,7 @@ export const HomeRender=({current}:currentProps)=>{
                                 <div className="bg-white p-6 rounded-lg shadow ">
                                     <div className="flex justify-between">
                                         <h3 className="text-2xl font-bold mb-6">Reglas por evento</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -789,9 +788,9 @@ export const HomeRender=({current}:currentProps)=>{
                             <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
                                 <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <div className="flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Equipos Inscritos</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                    <div className="flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Equipos Inscritos</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                                 className="size-5"
                                                 src={'/mas.png'}
@@ -803,7 +802,7 @@ export const HomeRender=({current}:currentProps)=>{
                                         </Button>
                                     </div>
 
-                                    <div className="flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
                                             <div className="relative w-full flex ">
                                                 
@@ -829,35 +828,41 @@ export const HomeRender=({current}:currentProps)=>{
                                                     </Button>
                                             </div>
 
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                    className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                    options={dropdownEstate}
+                                                    currentValue={isEstate}
+                                                    isOpen={isOpenE}
+                                                    setOpen={setIsOpenE} 
+                                                    onSelect={handleSelectE}
+                                                    placeholder="Seleccione el estado"
+                                                />
+                                            </div>
+                                        
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                        options={dropdownOptions}
+                                                        currentValue={isSelectJ}
+                                                        isOpen={isOpenJ}
+                                                        setOpen={setIsOpenJ} 
+                                                        onSelect={handleSelectJ}
+                                                        placeholder="Seleccione el tipo de juego"
+                                                />
+                                            </div>
+                                        
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
                                             <Select
-                                                 className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                 options={dropdownEstate}
-                                                 currentValue={isEstate}
-                                                 isOpen={isOpenE}
-                                                 setOpen={setIsOpenE} 
-                                                 onSelect={handleSelectE}
-                                                 placeholder="Seleccione el estado"
+                                                    className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                    options={dropdownEstate}
+                                                    currentValue={isEstate}
+                                                    isOpen={isOpenE}
+                                                    setOpen={setIsOpenE} 
+                                                    onSelect={handleSelectE}
+                                                    placeholder="Seleccione el estado"
                                             />
-                                        
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownOptions}
-                                                currentValue={isSelectJ}
-                                                isOpen={isOpenJ}
-                                                setOpen={setIsOpenJ} 
-                                                onSelect={handleSelectJ}
-                                                placeholder="Seleccione el tipo de juego"
-                                           />
-                                        
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
+                                            </div>
                                         
                                     </div>
 
@@ -988,9 +993,9 @@ export const HomeRender=({current}:currentProps)=>{
 
                                 <div className="bg-white p-6 rounded-lg shadow">
 
-                                    <div className="Titulo flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Actividades Generales y Culturales</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                    <div className="Titulo flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Actividades Generales y Culturales</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -1002,9 +1007,9 @@ export const HomeRender=({current}:currentProps)=>{
                                         </Button>
                                     </div>
 
-                                    <div className="Filtro flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="Filtro flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row lg:grid lg:grid-cols-2 xl:flex xl:flex-row items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
-                                            <div className="relative w-full flex ">
+                                            <div className="relative w-full flex col-span-2">
                                                 
                                                 <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
                                                     <Image
@@ -1027,30 +1032,34 @@ export const HomeRender=({current}:currentProps)=>{
                                                         />
                                                     </Button>
                                             </div>
-                                        
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownOptions}
-                                                currentValue={isSelectJ}
-                                                isOpen={isOpenJ}
-                                                setOpen={setIsOpenJ} 
-                                                onSelect={handleSelectJ}
-                                                placeholder="Seleccione el tipo de juego"
-                                           />
 
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3"
+                                                        options={dropdownOptions}
+                                                        currentValue={isSelectJ}
+                                                        isOpen={isOpenJ}
+                                                        setOpen={setIsOpenJ} 
+                                                        onSelect={handleSelectJ}
+                                                        placeholder="Seleccione el tipo de juego"
+                                                />
+                                            </div>
                                         
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3"
+                                                        options={dropdownEstate}
+                                                        currentValue={isEstate}
+                                                        isOpen={isOpenE}
+                                                        setOpen={setIsOpenE} 
+                                                        onSelect={handleSelectE}
+                                                        placeholder="Seleccione el estado"
+                                                />
+                                                
+                                            </div>
 
-                                            <div className="relative">
-                                                <Input type="date" id="fecha" className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3" required/>
+                                            <div className="relative w-full md:w-auto col-span-2 bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Input type="date" id="fecha" className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3 " required/>
                                             </div>
                                         
                                     </div>
@@ -1108,9 +1117,9 @@ export const HomeRender=({current}:currentProps)=>{
                             <section className="grid grid-cols-1 space-y-3 lg:space-y-0 lg:gap-6 mb-4">
 
                                 <div className="bg-white p-6 rounded-lg shadow">
-                                   <div className="flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Torneos Deportivos</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                   <div className="flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Torneos Deportivos</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -1124,9 +1133,9 @@ export const HomeRender=({current}:currentProps)=>{
 
 
 
-                                    <div className="Filtro flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="Filtro flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row  items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
-                                            <div className="relative w-full flex ">
+                                            <div className="relative w-full flex col-span-2">
                                                 
                                                 <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
                                                     <Image
@@ -1149,18 +1158,20 @@ export const HomeRender=({current}:currentProps)=>{
                                                         />
                                                     </Button>
                                             </div>
-                                                                                
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
 
-                                            <div className="relative">
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3"
+                                                        options={dropdownEstate}
+                                                        currentValue={isEstate}
+                                                        isOpen={isOpenE}
+                                                        setOpen={setIsOpenE} 
+                                                        onSelect={handleSelectE}
+                                                        placeholder="Seleccione el estado"
+                                                />     
+                                            </div>                                 
+
+                                            <div className="w-full relative md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl">
                                                 <Input type="date" id="fecha" className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3" required/>
                                             </div>
                                         
@@ -1208,9 +1219,9 @@ export const HomeRender=({current}:currentProps)=>{
                                 </div>
 
                                 <div className="bg-white p-6 rounded-lg shadow">
-                                   <div className="flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Partidos Deportivos</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                   <div className="flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Partidos Deportivos</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -1222,11 +1233,9 @@ export const HomeRender=({current}:currentProps)=>{
                                         </Button>
                                     </div>
 
-
-
-                                    <div className="Filtro flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="Filtro flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row  items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
-                                            <div className="relative w-full flex ">
+                                            <div className="relative w-full flex col-span-2">
                                                 
                                                 <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
                                                     <Image
@@ -1249,18 +1258,20 @@ export const HomeRender=({current}:currentProps)=>{
                                                         />
                                                     </Button>
                                             </div>
-                                                                                
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
 
-                                            <div className="relative">
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3"
+                                                        options={dropdownEstate}
+                                                        currentValue={isEstate}
+                                                        isOpen={isOpenE}
+                                                        setOpen={setIsOpenE} 
+                                                        onSelect={handleSelectE}
+                                                        placeholder="Seleccione el estado"
+                                                />
+                                            </div>                                        
+
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl relative">
                                                 <Input type="date" id="fecha" className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-3 pr-3 py-3" required/>
                                             </div>
                                         
@@ -1318,9 +1329,9 @@ export const HomeRender=({current}:currentProps)=>{
 
                                 <div className="bg-white p-6 rounded-lg shadow col-span-2 space-y-1">
                                    
-                                     <div className="flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Ofertas Deportivas</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                     <div className="flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Ofertas Deportivas</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -1333,52 +1344,56 @@ export const HomeRender=({current}:currentProps)=>{
                                     </div>
 
 
-                                    <div className="flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
-                                            <div className="relative w-full flex ">
-                                                
-                                                <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
+                                        <div className="relative w-full flex col-span-2">
+                                            
+                                            <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
+                                                <Image
+                                                    className="size-8"
+                                                    src={'/lupa.png'}
+                                                    alt="buscar"
+                                                    width={60}
+                                                    height={60}
+                                                />
+                                            </label>
+                                            <Input type="text" id="buscar" className="bg-gray-50 focus:ring-[1px]  focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-18 pr-3 py-3" placeholder="Buscar" required/>
+                                            
+                                                <Button className="h-full items-center px-2 pr-4 absolute right-0 rounded-2xl cursor-pointer ">
                                                     <Image
-                                                        className="size-8"
-                                                        src={'/lupa.png'}
+                                                        className="size-4"
+                                                        src={'/cerca.png'}
                                                         alt="buscar"
                                                         width={60}
                                                         height={60}
                                                     />
-                                                </label>
-                                                <Input type="text" id="buscar" className="bg-gray-50 focus:ring-[1px]  focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-18 pr-3 py-3" placeholder="Buscar" required/>
-                                                
-                                                    <Button className="h-full items-center px-2 pr-4 absolute right-0 rounded-2xl cursor-pointer ">
-                                                        <Image
-                                                            className="size-4"
-                                                            src={'/cerca.png'}
-                                                            alt="buscar"
-                                                            width={60}
-                                                            height={60}
-                                                        />
-                                                    </Button>
+                                                </Button>
+                                        </div>
+
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                        options={dropdownOptions}
+                                                        currentValue={isSelectJ}
+                                                        isOpen={isOpenJ}
+                                                        setOpen={setIsOpenJ} 
+                                                        onSelect={handleSelectJ}
+                                                        placeholder="Seleccione el tipo de juego"
+                                                />
                                             </div>
                                         
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownOptions}
-                                                currentValue={isSelectJ}
-                                                isOpen={isOpenJ}
-                                                setOpen={setIsOpenJ} 
-                                                onSelect={handleSelectJ}
-                                                placeholder="Seleccione el tipo de juego"
-                                           />
 
-                                        
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
+                                        <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                            <Select
+                                                    className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                    options={dropdownEstate}
+                                                    currentValue={isEstate}
+                                                    isOpen={isOpenE}
+                                                    setOpen={setIsOpenE} 
+                                                    onSelect={handleSelectE}
+                                                    placeholder="Seleccione el estado"
+                                            />
+                                        </div>
                                         
                                     </div>
                                     
@@ -1418,9 +1433,9 @@ export const HomeRender=({current}:currentProps)=>{
                                 </div>
 
                                 <div className="bg-white p-6 rounded-lg shadow col-span-2">
-                                    <div className="flex justify-between">
-                                        <h3 className="text-2xl font-bold mb-6">Ofertas recreativas</h3>
-                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4">
+                                    <div className="flex justify-between mb-6">
+                                        <h3 className="text-2xl font-bold">Ofertas recreativas</h3>
+                                        <Button className="bg-unimar flex items-center gap-2 hover:bg-unimar/90 cursor-pointer h-10 text-white rounded-2xl px-4 py-7 md:py-0">
                                             <Image
                                             className="size-5"
                                                 src={'/mas.png'}
@@ -1432,9 +1447,9 @@ export const HomeRender=({current}:currentProps)=>{
                                         </Button>
                                     </div>
 
-                                    <div className="flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-row items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
-                                            <div className="relative w-full flex ">
+                                            <div className="relative w-full flex col-span-2">
                                                 
                                                 <label htmlFor='buscar' className="h-full place-content-center absolute left-0 px-2 pl-3.5 cursor-pointer rounded-2xl">
                                                     <Image
@@ -1458,26 +1473,30 @@ export const HomeRender=({current}:currentProps)=>{
                                                     </Button>
                                             </div>
                                         
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownOptions}
-                                                currentValue={isSelectJ}
-                                                isOpen={isOpenJ}
-                                                setOpen={setIsOpenJ} 
-                                                onSelect={handleSelectJ}
-                                                placeholder="Seleccione el tipo de juego"
-                                           />
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                        options={dropdownOptions}
+                                                        currentValue={isSelectJ}
+                                                        isOpen={isOpenJ}
+                                                        setOpen={setIsOpenJ} 
+                                                        onSelect={handleSelectJ}
+                                                        placeholder="Seleccione el tipo de juego"
+                                                />
+                                            </div>
 
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
+                                                        options={dropdownEstate}
+                                                        currentValue={isEstate}
+                                                        isOpen={isOpenE}
+                                                        setOpen={setIsOpenE} 
+                                                        onSelect={handleSelectE}
+                                                        placeholder="Seleccione el estado"
+                                                />
+                                            </div>
                                         
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           />
                                         
                                     </div>
                                     
@@ -1528,7 +1547,7 @@ export const HomeRender=({current}:currentProps)=>{
                                  <h2 className="text-2xl font-semibold mb-4 text-gray-800">Comentarios de usuario</h2>
 
 
-                                    <div className="Filtro flex items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
+                                    <div className="Filtro flex flex-col md:flex-row items-center mb-6 gap-3 shadow p-3 bg-gray-800/8 rounded-2xl">
                                         
                                             <div className="relative w-full flex ">
                                                 
@@ -1553,16 +1572,19 @@ export const HomeRender=({current}:currentProps)=>{
                                                         />
                                                     </Button>
                                             </div>
+
+                                            <div className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl"       >
+                                                <Select
+                                                        className="w-full md:w-auto bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl pl-6 pr-3 py-3"       
+                                                        options={dropdownEstate}
+                                                        currentValue={isEstate}
+                                                        isOpen={isOpenE}
+                                                        setOpen={setIsOpenE} 
+                                                        onSelect={handleSelectE}
+                                                        placeholder="Seleccione el estado"
+                                                /> 
+                                            </div>
                                                                                 
-                                           <Select
-                                                className="bg-gray-50 focus:ring-[1px] focus:ring-unimar focus:outline-none ring ring-gray-400 shadow-md rounded-2xl w-full pl-6 pr-3 py-3"
-                                                options={dropdownEstate}
-                                                currentValue={isEstate}
-                                                isOpen={isOpenE}
-                                                setOpen={setIsOpenE} 
-                                                onSelect={handleSelectE}
-                                                placeholder="Seleccione el estado"
-                                           /> 
                                                                                 
                                     </div>
 

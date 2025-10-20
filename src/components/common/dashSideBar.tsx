@@ -1,40 +1,14 @@
 'use client'
-import { HTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import Image from "next/image";
 import {Button} from '@/types/ui_components';
 import Navigate from '@/components/ui/Router'
+import { AsideProps, menu } from '@/types/dashbord/menu';
 
-type Navigate = (newKey: number) => void;
-export interface AsideProps extends HTMLAttributes<HTMLDivElement>{
-    onNavigate:Navigate;
-    CurrentKey:number;
-};
-
-
-export interface Submenu{
-    id:number;
-    section:string;
-    img:string;
-    submenu?:Submenu[];
-}
-
-export const menu:Submenu[]=[
-    {id:1, section:'Home', img:'/hogar.png'},
-    {id:2, section:'Normativas', img:'/martillo-de-subasta.png'},
-    {id:3, section:'Inscripciones', img:'/contrato (1).png'},
-    {id:4, section:'Eventos y Actividades', img:'/calendario (3).png',
-        submenu:[   
-            {id:41, section:'Actividades generales', img:'/insertar-comentario.png', },
-            {id:42, section:'Gestion de Torneos', img:'/insertar-comentario.png', }
-        ]
-    },
-    {id:5, section:'Ofertas Deportivas', img:'/etiqueta (1).png'},
-    {id:6, section:'Comentarios', img:'/insertar-comentario.png'},
-]
 
 export default function Aside({onNavigate, CurrentKey,...props}:AsideProps){
-    const [openSubmenu, setSubmenu] = useState<number | null>(null)
-    const handleMenuClick = (id : number, active:boolean) =>{
+     const [openSubmenu, setSubmenu] = useState<number | null>(null)
+     const handleMenuClick = (id : number, active:boolean) =>{
         if(active){
             setSubmenu(openSubmenu===id? null:id)
         }else{
@@ -42,7 +16,7 @@ export default function Aside({onNavigate, CurrentKey,...props}:AsideProps){
             setSubmenu(null);
         }
     }
-
+    
     return(
         <div {...props} >
             <section className='justify-content-center '>
