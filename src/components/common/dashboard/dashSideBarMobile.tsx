@@ -36,12 +36,12 @@ export default function AsideMobile({onNavigate, CurrentKey,...props}:AsideProps
     });
     
     return(
-       <div className="grid grid-cols-4 justify-around items-center h-full w-full">
+       <div className="grid grid-cols-4 justify-around items-center h-full w-full gap-1">
             {visibleOption.map((item) => (
                 <div 
                     key={item.id} 
                     onClick={() => onNavigate(item.id)} 
-                    className={`flex flex-col items-center justify-center p-1.5 text-xs cursor-pointer rounded-xl ml-2
+                    className={`flex flex-col items-center justify-center p-1.5 text-xs cursor-pointer rounded-xl first:ml-1
                         ${item.id === CurrentKey ? 'text-unimar font-semibold bg-unimar/16' : 'text-gray-500 hover:bg-unimar/10'}
                     `}
                 >
@@ -51,7 +51,7 @@ export default function AsideMobile({onNavigate, CurrentKey,...props}:AsideProps
             ))}
             
                 <Button onClick={handleOptions} id='mas opciones'
-                    className={`flex flex-col items-center justify-center p-1 text-xs cursor-pointer rounded-xl mx-2
+                    className={`flex flex-col items-center justify-center p-1 text-xs cursor-pointer rounded-xl mr-1
                         ${ isOptionOpen || isActive ? 'text-unimar font-semibold bg-unimar/16' : 'text-gray-500 hover:bg-unimar/10'}
                          
                     `}
@@ -93,16 +93,16 @@ export default function AsideMobile({onNavigate, CurrentKey,...props}:AsideProps
                                 {item.submenu && item.id===openSubmenu&&(
                                     <div className={`ml-3 pl-2 pr-2 border-l border-gray-300 mt-1.5 gap-1 flex flex-col`}>
                                         {item.submenu.map((sub)=>(
-                                            <div key={sub.id} className={`mt-0.5 p-3 flex items-center gap- text-unimar/65 bg-unimar/7 cursor-pointer rounded-lg ${CurrentKey===sub.id?'bg-unimar/18  font-medium text-unimar':'hover:bg-unimar/10'}`} 
+                                            <div key={sub.id} className={`mt-0.5 p-3 flex items-center gap-3 text-unimar/65 bg-unimar/7 cursor-pointer rounded-lg ${CurrentKey===sub.id?'bg-unimar/18  font-medium text-unimar':'hover:bg-unimar/10'}`} 
                                                 onClick={()=>{onNavigate(sub.id); setSubmenu(null); setOptionOpen(false)}}
                                             >
-                                                <Image
-                                                    className='size-8'
-                                                    src={item.img}
-                                                    alt={sub.section}
-                                                    width={100}
-                                                    height={100}
-                                                />
+                                                    <Image
+                                                        className='size-8'
+                                                        src={sub.img}
+                                                        alt={sub.section}
+                                                        width={100}
+                                                        height={100}
+                                                    />
                                                 <h3>{sub.section}</h3>
                                             </div>
                                         ))}

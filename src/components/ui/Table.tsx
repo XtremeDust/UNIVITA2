@@ -6,7 +6,7 @@ import { TableHead } from './TableHead';
 
 type TableProps = HTMLAttributes<HTMLTableElement>
 
-export default function Table({children,...props}:TableProps){
+export function Table({children,...props}:TableProps){
     return(
         <div className='overflow-x-auto'>
             <table {...props}>                                        
@@ -14,7 +14,7 @@ export default function Table({children,...props}:TableProps){
             </table>         
         </div>
     );
-}
+}export default Table
 
 Table.Head=TableHead;
 Table.Row = TableRow;

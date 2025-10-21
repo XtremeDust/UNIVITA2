@@ -22,7 +22,7 @@ export interface SelectProps {
 
 
 
-export default function Select({options,currentValue,className,isOpen,setOpen,onSelect,placeholder,...props}: SelectProps){
+export function Select({options,currentValue,className,isOpen,setOpen,onSelect,placeholder,...props}: SelectProps){
 
   const menuOut = useRef<HTMLDivElement>(null); 
 
@@ -71,4 +71,4 @@ export default function Select({options,currentValue,className,isOpen,setOpen,on
                 </div>                                                                    
         </div>
     );
-}
+}export default Select

@@ -48,7 +48,7 @@ export default function Aside({onNavigate, CurrentKey,...props}:AsideProps){
                                     <div key={sub.id} className={`mt-0.5 p-3 flex items-center gap-3 hover:bg-unimar/15 cursor-pointer rounded-lg ${CurrentKey===sub.id?'bg-unimar/15 font-medium text-unimar':' grayscale-95'}`} onClick={()=>onNavigate(sub.id)} >
                                         <Image
                                             className='size-8'
-                                            src={aside.img}
+                                            src={sub.img}
                                             alt={sub.section}
                                             width={100}
                                             height={100}

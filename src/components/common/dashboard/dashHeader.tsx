@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import Image from "next/image";
-import Avatar from '../ui/Avatar';
+import Avatar from '../../ui/Avatar';
 
 import { menu, Submenu } from '@/types/dashbord/menu'; 
 import { view } from 'framer-motion/client';
@@ -32,7 +32,7 @@ export default function Header({CurrentKey,...props}:HeaderProps){
 
           <div className='flex flex-row place-items-center justify-between py-4 px-6 w-full'>
                 {activeItem?.id &&(
-                    <h1 className={`text-3xl font-bold`}>{activeItem.section}</h1>
+                    <h1 className={`text-xl md:text-2xl xl:text-3xl font-bold`}>{activeItem.section}</h1>
                   )}
 
             <section className='flex  flex-row items-center gap-4'>

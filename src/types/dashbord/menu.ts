@@ -21,10 +21,10 @@ export const menu:Submenu[]=[
     {id:3, section:'Inscripciones', img:'/contrato (1).png',src:''},
     {id:4, section:'Eventos y Actividades', img:'/calendario (3).png',
         submenu:[   
-            {id:41, section:'Actividades generales', img:'/insertar-comentario.png',src:''},
-            {id:42, section:'Gestion de Torneos', img:'/insertar-comentario.png',src:''}
+            {id:4, section:'Actividades generales', img:'/numero.png',src:''},
+            {id:5, section:'Gestion de Torneos', img:'/eficiencia.png',src:''}
         ]
     },
-    {id:5, section:'Ofertas Deportivas', img:'/etiqueta (1).png',src:''},
-    {id:6, section:'Comentarios', img:'/insertar-comentario.png',src:''},
+    {id:6, section:'Ofertas Deportivas', img:'/etiqueta (1).png',src:''},
+    {id:7, section:'Comentarios', img:'/insertar-comentario.png',src:''},
 ]
