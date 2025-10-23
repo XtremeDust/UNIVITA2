@@ -21,12 +21,12 @@ function NavigationLogic() {
     return (
         <React.Fragment>
     
-            <Header CurrentKey={currentView} className="shadow-sm h-16 bg-unimar w-full flex col-span-full" />
+            <Header CurrentKey={currentView} className="shadow-sm h-16 bg-unimar w-full flex lg:col-start-2 col-span-full" />
     
             <Aside 
                 onNavigate={handleChange} 
                 CurrentKey={currentView}
-                className="w-full text-black flex-col shadow-l relative hidden lg:flex" 
+                className="w-full text-black flex-col relative hidden lg:flex lg:row-span-full shadow-2xl " 
             />
 
             <main className="p-6 md:p-8 bg-gray-100 col-span-full lg:col-auto overflow-y-auto">
@@ -55,7 +55,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <NavigationLogic />
             </Suspense>
 
-            <Footer className="bg-white p-3 text-sm text-gray-500 text-center border-t border-gray-200 col-span-full"/>
+            <Footer className="bg-white p-3 text-sm text-gray-500 text-center border-t border-gray-200 lg:col-start-2 col-span-full"/>
             
         </div>
     );

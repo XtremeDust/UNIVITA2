@@ -28,7 +28,8 @@ export default function Aside({onNavigate, CurrentKey,...props}:AsideProps){
                     height={500}
                     />
                 </div>
-                <div className=' mt-0.5 px-1 '>
+
+                <div className=' mt-0.5 px-1 border-t pt-1.5 border-gray-300 '>
                     {menu.map((aside)=>(
                         <div key={aside.id}>
                             <div className={`mt-0.5 p-3 flex items-center gap-3 hover:bg-unimar/15 cursor-pointer rounded-lg ${CurrentKey===aside.id || aside.submenu?.some(sub => sub.id === CurrentKey) ?'bg-unimar/15 font-medium text-unimar':' grayscale-95'} `} onClick={()=>handleMenuClick(aside.id, !!aside.submenu)} >
@@ -64,7 +65,7 @@ export default function Aside({onNavigate, CurrentKey,...props}:AsideProps){
                 </div>
 
             </section>
-            <section className='absolute bottom-3 left-1 right-1'>
+            <section className='absolute bottom-3 left-1 right-1  mt-0.5 px-1 border-t pt-1.5 border-gray-300 '>
                 <Navigate href='/'>
                     <Button className='w-full p-3 flex gap-3 items-center hover:bg-red-200 text-red-700  cursor-pointer text-start rounded-lg '>
                             <Image
