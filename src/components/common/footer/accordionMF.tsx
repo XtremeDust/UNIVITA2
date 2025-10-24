@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import {sectionFs} from "@/types/footerSection";
-import Redes from "@/components/common/socialMedia"
+import Redes from "@/components/common/footer/socialMedia"
 
 function Accordion(){
 

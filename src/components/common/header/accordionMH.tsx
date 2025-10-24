@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import {sectionH} from "@/types/headerSection";
-import Arrow from "./ArrowIcon";
+import Arrow from "../ArrowIcon";
 
 
 function Accordeon (){

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Header from "@/components/common/MainHeader";
-import Footer from "@/components/common/MainFooter";
+import Header from "@/components/common/header/MainHeader";
+import Footer from "@/components/common/footer/MainFooter";
 import {Banner} from "@/types/ui_components";
-import Features from "@/components/sections/featuresSection";
-import Comentsection from "@/components/sections/comentSection";
-import Univita from "@/components/sections/Univita";
+import Features from "@/components/sections_Main/feacture/featuresSection";
+import Comentsection from "@/components/sections_Main/coments/comentSection";
+import Univita from "@/components/sections_Main/univita/Univita";
 
 
 

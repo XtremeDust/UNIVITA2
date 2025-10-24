@@ -1,5 +1,5 @@
 'use client'
-import Redes from "@/components/common/socialMedia";
+import Redes from "@/components/common/footer/socialMedia";
 import {sectionFs} from "@/types/footerSection";
 
 function licksFooter(){

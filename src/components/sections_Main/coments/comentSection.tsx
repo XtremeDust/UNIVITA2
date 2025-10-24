@@ -1,6 +1,6 @@
  "use client"
-import Btcomment from "@/components/sections/ButtonComent";
-import ComentCard from "@/components/sections/comentCard";
+import Btcomment from "@/components/sections_Main/coments/ButtonComent";
+import ComentCard from "@/components/sections_Main/coments/comentCard";
 import { coments } from "@/types/comentarios";
 
  export default function comenSection(){

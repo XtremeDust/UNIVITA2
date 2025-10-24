@@ -1,7 +1,7 @@
-import Footer from "@/components/common/MainFooter";
-import Header from "@/components/common/MainHeader";
+import Footer from "@/components/common/footer/MainFooter";
+import Header from "@/components/common/header/MainHeader";
 import { Banner } from "@/types/ui_components";
-import Regulation from "@/components/sections/regulation";
+import Regulation from "@/components/sections_Main/regulation/regulation";
 
 export default function reglamentos(){
     return(

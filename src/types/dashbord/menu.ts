@@ -4,6 +4,9 @@ type Navigate = (newKey: number) => void;
 export interface AsideProps extends HTMLAttributes<HTMLDivElement>{
     onNavigate:Navigate;
     CurrentKey:number;
+    isExpanded?:boolean;
+    handleMouseEnter?:()=>void
+     handleMouseLeave?:()=>void
 };
 
 

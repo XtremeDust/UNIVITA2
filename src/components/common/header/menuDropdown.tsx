@@ -1,7 +1,7 @@
 'use client'
 import React, {useRef, useState,useEffect} from "react";
-import {sectionH} from "../../types/headerSection";
-import Arrow from "./ArrowIcon";
+import {sectionH} from "../../../types/headerSection";
+import Arrow from "../ArrowIcon";
 
  export default function menuDropdown(){
 

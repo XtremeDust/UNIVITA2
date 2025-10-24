@@ -2,7 +2,7 @@
 import Sports from "@/components/common/sportsCard";
 import {sports} from "@/types/sports"
 import { useState } from "react";
-import SportInfo from "./sportinfo"
+import SportInfo from "../offerts/sportinfo"
 import Navigation from "@/components/common/navigation"
 import React from "react";
 import {Card, Button} from "@/types/ui_components";

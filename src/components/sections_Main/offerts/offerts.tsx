@@ -1,6 +1,6 @@
 'use client'
-import Card from "../ui/Card";
-import Navigation from "../common/navigation";
+import Card from "../../ui/Card";
+import Navigation from "../../common/navigation";
 import {Button , Modal, HeaderModal, ContainModal} from "@/types/ui_components";
 import { use, useState } from "react";
 import Image from "next/image";

@@ -10,8 +10,6 @@ import {
   TableHead, TableHeaderCell,
   InputGroup
  } from '@/types/ui_components'
-import { useSelectState } from '@/hooks/useStateSelect'
-import { label } from 'framer-motion/client'
 
 const titlequipos = [
     {id:1, titulo:"Nombre"},
@@ -108,17 +106,7 @@ const buttons = [
 
 export default function page() {
 
-    const categoria = useSelectState('Todos'); 
-
     const category = [{id: 2, label: 'Masculina'}, {id: 3, label: 'Femenina'}, {id:4, label:'Mixta'}];
-
-    const dropdownOptions = [
-    ...(categoria.value !== 'Todos' ? [{ id: 0, label: 'Todos' }] : []),
-    ...category
-        .filter(cat => cat.label !== categoria.value)
-        .map(cat => ({id: cat.id, label: cat.label,})),
-    ];
-
 
     /// funcional sin hook (maldito mrd no sirve) <Filtro de Categorias>
 

@@ -1,6 +1,6 @@
-import Footer from "@/components/common/MainFooter";
-import Header from "@/components/common/MainHeader";
-import Inscription from "@/components/sections/inscription";
+import Footer from "@/components/common/footer/MainFooter";
+import Header from "@/components/common/header/MainHeader";
+import Inscription from "@/components/sections_Main/inscription/content";
 
 
 export default function inscription(){

@@ -1,5 +1,5 @@
 'use client'; 
-import React, { Suspense } from 'react'; 
+import React, { Suspense, useState } from 'react'; 
 import Header from "@/components/common/dashboard/dashHeader";
 import Aside from "@/components/common/dashboard/dashSideBar";
 import AsideMobile from "@/components/common/dashboard/dashSideBarMobile";
@@ -18,15 +18,27 @@ function NavigationLogic() {
         router.push(`?view=${newKey}`);
     };
 
+    const [isToggle, setToggle] = useState(false);
+    const handleToggle =()=>{
+        setToggle(!isToggle)
+    }
+
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+    const isExpanded = isToggle || isHovered;
+    
     return (
         <React.Fragment>
     
-            <Header CurrentKey={currentView} className="shadow-sm h-16 bg-unimar w-full flex lg:col-start-2 col-span-full" />
+            <Header CurrentKey={currentView} onToggle={handleToggle} className="shadow-sm h-16 bg-unimar w-full flex lg:col-start-2 col-span-full" />
     
             <Aside 
                 onNavigate={handleChange} 
                 CurrentKey={currentView}
-                className="w-full text-black flex-col relative hidden lg:flex lg:row-span-full shadow-2xl " 
+                isExpanded={isExpanded} 
+                handleMouseEnter={handleMouseEnter}
+                handleMouseLeave={handleMouseLeave}
             />
 
             <main className="p-6 md:p-8 bg-gray-100 col-span-full lg:col-auto overflow-y-auto">
@@ -44,10 +56,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     
     return (
  
-        <div className="grid grid-rows-[auto_1fr_auto] grid-cols-1 lg:grid-cols-[280px_1fr] min-h-dvh bg-gray-200">
+        <div className="grid grid-rows-[auto_1fr_auto] grid-cols-1 lg:grid-cols-[auto_1fr] min-h-dvh bg-gray-200">
 
             <Suspense fallback={
-                <div className="col-span-full grid grid-cols-1 lg:grid-cols-[280px_1fr]">
+                <div className="col-span-full grid grid-cols-1  lg:grid-cols-[245px_1fr]">
                     <div className="col-span-full bg-unimar h-16"></div>
                     <div className="col-span-full p-4 text-center text-gray-600">Cargando datos de navegación...</div>
                 </div>

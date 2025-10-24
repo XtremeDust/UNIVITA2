@@ -1,7 +1,7 @@
-import Footer from '@/components/common/MainFooter';
-import Header from '@/components/common/MainHeader';
+import Footer from '@/components/common/footer/MainFooter';
+import Header from '@/components/common/header/MainHeader';
 import {Banner} from '@/types/ui_components';
-import Events from '@/components/sections/events';
+import Events from '@/components/sections_Main/events/events';
 
 export default function events(){
     return(

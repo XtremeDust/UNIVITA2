@@ -1,6 +1,6 @@
-import Footer from "@/components/common/MainFooter";
-import Header from "@/components/common/MainHeader";
-import Offerts from "@/components/sections/offerts";
+import Footer from "@/components/common/footer/MainFooter";
+import Header from "@/components/common/header/MainHeader";
+import Offerts from "@/components/sections_Main/offerts/offerts";
 import { Banner } from "@/types/ui_components";
 
 export default function sportOffers (){

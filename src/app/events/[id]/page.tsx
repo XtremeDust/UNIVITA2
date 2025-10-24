@@ -1,5 +1,5 @@
-import Footer from '@/components/common/MainFooter';
-import Header from '@/components/common/MainHeader';
+import Footer from '@/components/common/footer/MainFooter';
+import Header from '@/components/common/header/MainHeader';
 import {Banner, Button, Card} from '@/types/ui_components';
 import {sports,partidos} from '@/types/sports'
 import {eventos} from "@/types/eventos"

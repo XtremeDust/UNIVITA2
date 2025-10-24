@@ -1,17 +1,29 @@
 // header de la page principal
 'use client'
-import Redes from "@/components/common/socialMedia";
+import Redes from "@/components/common/footer/socialMedia";
 import {pago} from "@/types/headerSection";
-import Accordeon from "@/components/common/accordionMH"
-import React, {useState} from "react";
+import Accordeon from "@/components/common/header/accordionMH"
+import React, {useState, useEffect} from "react";
 import Image from "next/image";
 import {ActiveLink} from "@/components/ui/Router";
-import MenuDropdown from "@/components/common/menuDropdown";
+import MenuDropdown from "@/components/common/header/menuDropdown";
 
 function Header(){
 
 const [isOpenMenu, setOpenMenu] = useState(false);
 let date: Date=new Date();
+
+ const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch("/api/dolar")
+      .then(res => res.json())
+      .then(setData)
+      .catch(console.error);
+  }, []);
+
+  if (!data) return <header>Cargando dólar...</header>;
+
 
 
     return(
@@ -28,9 +40,10 @@ let date: Date=new Date();
                   alt={'info'}
             />
             <p className=" flex flex-none gap-1">
-              El valor del dólar, según el BCV, para el día de hoy {`${date.getUTCDate()}/${date.getUTCMonth()+1}/${date.getUTCFullYear()}`}
+              El valor del dólar, según el BCV, para el día de hoy {`${date.getDate()}/${date.getUTCMonth()+1}/${date.getUTCFullYear()}`}
              <span> es </span>
-              <strong> precio </strong> Bs
+              <strong> {data.oficial?.promedio.toFixed(2)} </strong> Bs
+              
             </p>
             </section>
           </div>
